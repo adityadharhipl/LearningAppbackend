@@ -9,11 +9,11 @@ app.get("/", (req, res) => {
   res.send("API Running");
 });
 
-const adminAuthRoutes = require("./routes/admin/auth.routes");
-const adminBlogRoutes = require("./routes/admin/blog.routes");
+const adminAuthRoutes = require("./admin/auth/auth.routes");
+const adminBlogRoutes = require("./admin/blog/blog.routes");
 
 
-const adminProfileRoutes = require("./routes/admin/profile.routes");
+const adminProfileRoutes = require("./admin/profile/profile.routes");
 
 app.use(
   "/api/v1/admin/auth",
@@ -25,7 +25,7 @@ app.use(
 );
 
 
-const webAuthRoutes = require("./routes/web/auth.routes");
+const webAuthRoutes = require("./web/auth/auth.routes");
 
 app.use(
  "/api/v1/web/auth",
@@ -36,12 +36,12 @@ app.use(
 
 const adminLandingRoutes =
 require(
- "./routes/admin/landing.routes"
+ "./admin/landing/landing.routes"
 );
 
 const webLandingRoutes =
 require(
- "./routes/web/landing.routes"
+ "./web/landing/landing.routes"
 );
 
 app.use(
@@ -61,5 +61,16 @@ app.use(
   adminProfileRoutes
 );
 
+// ─────────────────────────────────────────────────────────────────
+// New Modular Routes (modules/blog & modules/membership)
+// ─────────────────────────────────────────────────────────────────
+
+// Centralized admin router (includes blog + membership admin routes)
+const adminRoutes = require("./routes/admin.routes");
+app.use("/api/v1/admin", adminRoutes);
+
+// Centralized web router (includes blog + membership web routes)
+const webRoutes = require("./routes/web.routes");
+app.use("/api/v1/web", webRoutes);
 
 module.exports = app;
