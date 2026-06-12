@@ -52,11 +52,23 @@ const landingPageSchema = new mongoose.Schema({
     videoUrl: String
   },
 
-  OurFeatures: {
-    title: String,
-    description: String
-  },
+  // OurFeatures: {
+  //   title: String,
+  //   description: String
+  // },
 
+ OurFeatures: {
+  title: String,
+  description: String,
+
+  features: [
+    {
+      title: String,
+      description: String,
+      image: String
+    }
+  ]
+ },
   ToolsForTeachers: [
     {
       title: String,
@@ -99,22 +111,30 @@ const landingPageSchema = new mongoose.Schema({
     }
   ],
 
-  LatestNewsAndResources: [
+ LatestNewsAndResources: {
+  title: String,
+  description: String,
+
+  featuredNews: {
+    title: String,
+    description: String,
+    image: String,
+    tag: String,
+    readMoreLink: String
+  },
+
+  news: [
     {
       title: String,
       description: String,
       image: String,
+      tag: String,
       date: String
     }
-  ],
-
-  blogs: [
-    {
-      title: String,
-      image: String,
-      description: String
-    }
   ]
+}
+
+
 
 }, {
   timestamps: true
