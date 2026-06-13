@@ -19,6 +19,19 @@ exports.register = async (req, res) => {
 
     const hash = await bcrypt.hash(password, 10);
 
+    // const user = await User.create({
+    //   username,
+    //   email,
+    //   password: hash
+    // });
+
+    // const token = generateToken(user._id, user.role);
+
+    // return res.status(201).json({
+    //   success: true,
+    //   token,
+    //   user
+    // });
     const user = await User.create({
       username,
       email,
@@ -27,11 +40,15 @@ exports.register = async (req, res) => {
 
     const token = generateToken(user._id, user.role);
 
+    const userData = user.toObject();
+    delete userData.password;
+
     return res.status(201).json({
       success: true,
       token,
-      user
+      user: userData
     });
+
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -65,10 +82,19 @@ exports.login = async (req, res) => {
 
     const token = generateToken(user._id, user.role);
 
+    // return res.json({
+    //   success: true,
+    //   token,
+    //   user
+    // });
+
+    const userData = user.toObject();
+    delete userData.password;
+
     return res.json({
       success: true,
       token,
-      user
+      user: userData
     });
   } catch (error) {
     return res.status(500).json({
@@ -161,6 +187,25 @@ exports.profile = async (req, res) => {
     return res.status(500).json({
       success: false,
       message: error.message
+    });
+  }
+};
+
+
+// Get All Users
+exports.getUsers = async (req, res) => {
+  try {
+    const users = await User.find().select("-password");
+
+    return res.status(200).json({
+      success: true,
+      count: users.length,
+      users,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
     });
   }
 };

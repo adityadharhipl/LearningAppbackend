@@ -1,89 +1,150 @@
 const Blog = require('./blog.model');
 const { getPagination } = require('../../utils/pagination');
 
-/**
- * GET /api/v1/web/blogs
- * Returns blogs organized by UI sections:
- *  - featuredBlog       → isFeatured: true  (top hero blog)
- *  - readingBlogList    → all blogs grouped by category
- *  - relatedBlogs       → latest blogs (paginated)
- *  - marketingArticles  → isMarketing: true
- */
+// GET ALL BLOGS (WEB UI)
 exports.getAllBlogs = async (req, res) => {
   try {
     const { page, limit, skip } = getPagination(req.query);
 
-    // ── 1. Featured Blog (hero section) ──────────────────────────────
+    // 🔥 FEATURED BLOG
     const featuredBlog = await Blog.findOne({ isFeatured: true })
       .sort({ createdAt: -1 });
 
-    // ── 2. Reading Blog List (grouped by category) ────────────────────
-    //    Get all unique categories
+    // 🔥 CATEGORY WISE BLOGS
     const categories = await Blog.distinct('category');
 
-    const readingBlogList = {};
-    for (const cat of categories) {
-      if (!cat) continue;
-      readingBlogList[cat] = await Blog.find({ category: cat })
-        .sort({ createdAt: -1 })
-        .limit(4);
-    }
+   const readingBlogList = {};
 
-    // ── 3. Related Blogs (paginated, latest) ──────────────────────────
-    const totalCount   = await Blog.countDocuments();
-    const totalPages   = Math.ceil(totalCount / limit);
+await Promise.all(
+  categories.map(async (cat) => {
+    const blogs = await Blog.find({
+      category: cat,
+      isMarketing: false
+    })
+      .sort({ createdAt: -1 })
+      .limit(4);
+
+    readingBlogList[cat] = blogs;
+  })
+);
+
+    // 🔥 RELATED BLOGS (LATEST)
+    const totalCount = await Blog.countDocuments();
+
     const relatedBlogs = await Blog.find()
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit);
 
-    // ── 4. Marketing Articles ─────────────────────────────────────────
+    // 🔥 MARKETING ARTICLES
     const marketingArticles = await Blog.find({ isMarketing: true })
       .sort({ createdAt: -1 })
-      .limit(4);
+      .limit(6);
 
-    return res.json({
+    res.json({
       success: true,
-
-      // Hero featured blog
       featuredBlog,
-
-      // Category-wise reading list  e.g. { "Inspiration": [...], "React": [...] }
       readingBlogList,
-
-      // Related / latest blogs with pagination
       relatedBlogs: {
-        length:      relatedBlogs.length,
         totalCount,
-        totalPages,
         currentPage: page,
         limit,
-        data:        relatedBlogs
+        data: relatedBlogs
       },
-
-      // Marketing articles section
-      marketingArticles: {
-        length: marketingArticles.length,
-        data:   marketingArticles
-      }
+      marketingArticles
     });
+
   } catch (err) {
-    return res.status(500).json({ success: false, message: err.message });
+    res.status(500).json({
+      success: false,
+      message: err.message
+    });
   }
 };
 
-/**
- * GET /api/v1/web/blogs/:id
- * Returns full details of a single blog
- */
+// GET SINGLE BLOG
+// exports.getBlogById = async (req, res) => {
+//   try {
+//     const blog = await Blog.findById(req.params.id);
+
+//     if (!blog) {
+//       return res.status(404).json({
+//         success: false,
+//         message: "Blog not found"
+//       });
+//     }
+
+//     res.json({
+//       success: true,
+//       data: blog
+//     });
+
+//   } catch (err) {
+//     res.status(500).json({
+//       success: false,
+//       message: err.message
+//     });
+//   }
+// };
+
+
+
 exports.getBlogById = async (req, res) => {
   try {
-    const blog = await Blog.findById(req.params.id);
+    const { id } = req.params;
+
+    const { page = 1, limit = 4 } = req.query;
+    const skip = (page - 1) * limit;
+
+    // 1. GET MAIN BLOG
+    const blog = await Blog.findById(id);
+
     if (!blog) {
-      return res.status(404).json({ success: false, message: 'Blog not found' });
+      return res.status(404).json({
+        success: false,
+        message: "Blog not found"
+      });
     }
-    return res.json({ success: true, blogDetails: blog, data: blog });
+
+    // 2. INCREASE VIEWS
+    await Blog.findByIdAndUpdate(id, {
+      $inc: { views: 1 }
+    });
+
+    // 3. BUILD RELATED QUERY (exclude current blog)
+    const relatedQuery = {
+      _id: { $ne: blog._id },
+      $or: [
+        { category: blog.category },
+        { tags: { $in: blog.tags || [] } }
+      ]
+    };
+
+    // 4. TOTAL COUNT
+    const totalCount = await Blog.countDocuments(relatedQuery);
+
+    // 5. FETCH RELATED BLOGS
+    const relatedBlogs = await Blog.find(relatedQuery)
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(Number(limit));
+
+    // 6. RESPONSE
+    res.status(200).json({
+      success: true,
+      data: blog,
+      relatedBlogs: {
+        totalCount,
+        currentPage: Number(page),
+        limit: Number(limit),
+        data: relatedBlogs
+      }
+    });
+
   } catch (err) {
-    return res.status(500).json({ success: false, message: err.message });
+    res.status(500).json({
+      success: false,
+      message: err.message
+    });
   }
 };

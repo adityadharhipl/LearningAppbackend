@@ -1,5 +1,5 @@
 const bcrypt = require("bcryptjs");
-const Admin = require("./profile.model");
+const Admin = require("../auth/auth.model");
 
 // CREATE ADMIN
 exports.createAdmin = async (req, res) => {
@@ -13,7 +13,7 @@ exports.createAdmin = async (req, res) => {
       });
     }
 
-    const exist = await Admin.findOne({ email });
+    const exist = await Admin.findOne({ email: email.toLowerCase().trim() });
 
     if (exist) {
       return res.status(400).json({
@@ -26,16 +26,18 @@ exports.createAdmin = async (req, res) => {
 
     const admin = await Admin.create({
       name,
-      email,
+      email: email.toLowerCase().trim(),
       password: hash,
     });
+
+    const adminData = admin.toObject();
+    delete adminData.password;
 
     return res.status(201).json({
       success: true,
       message: "Admin created successfully",
-      data: admin,
+      data: adminData,
     });
-
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -56,7 +58,6 @@ exports.getAllAdmins = async (req, res) => {
       count: admins.length,
       data: admins,
     });
-
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -68,8 +69,7 @@ exports.getAllAdmins = async (req, res) => {
 // GET SINGLE ADMIN
 exports.getSingleAdmin = async (req, res) => {
   try {
-    const admin = await Admin.findById(req.params.id)
-      .select("-password");
+    const admin = await Admin.findById(req.params.id).select("-password");
 
     if (!admin) {
       return res.status(404).json({
@@ -82,7 +82,6 @@ exports.getSingleAdmin = async (req, res) => {
       success: true,
       data: admin,
     });
-
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -114,12 +113,14 @@ exports.updateAdmin = async (req, res) => {
 
     await admin.save();
 
+    const adminData = admin.toObject();
+    delete adminData.password;
+
     return res.status(200).json({
       success: true,
       message: "Admin updated successfully",
-      data: admin,
+      data: adminData,
     });
-
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -131,9 +132,7 @@ exports.updateAdmin = async (req, res) => {
 // DELETE ADMIN
 exports.deleteAdmin = async (req, res) => {
   try {
-    const admin = await Admin.findByIdAndDelete(
-      req.params.id
-    );
+    const admin = await Admin.findByIdAndDelete(req.params.id);
 
     if (!admin) {
       return res.status(404).json({
@@ -146,7 +145,6 @@ exports.deleteAdmin = async (req, res) => {
       success: true,
       message: "Admin deleted successfully",
     });
-
   } catch (error) {
     return res.status(500).json({
       success: false,

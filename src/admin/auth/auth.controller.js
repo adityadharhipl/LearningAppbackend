@@ -14,7 +14,7 @@ exports.login = async (req, res) => {
       });
     }
 
-    const admin = await Admin.findOne({ email });
+    const admin = await Admin.findOne({ email: email.toLowerCase().trim() });
 
     if (!admin) {
       return res.status(401).json({
@@ -55,8 +55,31 @@ exports.login = async (req, res) => {
 
 // Admin Profile
 exports.profile = async (req, res) => {
+  const adminData = req.admin.toObject ? req.admin.toObject() : req.admin;
+  delete adminData.password;
   return res.json({
     success: true,
-    data: req.admin,
+    data: adminData,
   });
+};
+
+// Get All Admins
+exports.getUsers = async (req, res) => {
+  try {
+    const users = await Admin.find({})
+      .select("-password")
+      .sort({ createdAt: -1 });
+
+    return res.status(200).json({
+      success: true,
+      count: users.length,
+      data: users,
+    });
+  } catch (error) {
+    console.error("Get Users Error:", error);
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
 };

@@ -2,21 +2,30 @@ const mongoose = require('mongoose');
 
 const blogSchema = new mongoose.Schema({
   title: { type: String, required: true },
+  slug: { type: String, unique: true }, 
+
   description: { type: String },
   content: { type: String },
-  image: { type: String }, 
-  category: { type: String }, 
+
+  image: { type: String },
+
+  category: { type: String, index: true },
+
   author: {
-    name: { type: String },
-    image: { type: String }
+    name: String,
+    image: String
   },
-  price: { type: String }, 
-  views: { type: String, default: "0" },
-  isFeatured: { type: Boolean, default: false },
-  isMarketing: { type: Boolean, default: false }, 
+
   tags: [{ type: String }],
+
+  isFeatured: { type: Boolean, default: false },
+  isMarketing: { type: Boolean, default: false },
+
+  views: { type: Number, default: 0 },
+
   readTime: { type: String },
+
   createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.models.Blog || mongoose.model('Blog', blogSchema);
+module.exports = mongoose.model('Blog', blogSchema);

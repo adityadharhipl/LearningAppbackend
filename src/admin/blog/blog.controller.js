@@ -1,64 +1,103 @@
 const Blog = require('./blog.model');
 const { getPagination } = require('../../utils/pagination');
 
-// Get all blogs (admin)
+// GET ALL ADMIN BLOGS
 exports.getAllBlogsAdmin = async (req, res) => {
   try {
     const { page, limit, skip } = getPagination(req.query);
+
     const totalCount = await Blog.countDocuments();
-    const totalPages = Math.ceil(totalCount / limit);
+
     const blogs = await Blog.find()
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit);
 
-    return res.json({
+    res.json({
       success: true,
-      length: blogs.length,
       totalCount,
-      totalPages,
       currentPage: page,
       limit,
       data: blogs
     });
+
   } catch (err) {
-    return res.status(500).json({ success: false, message: err.message });
+    res.status(500).json({
+      success: false,
+      message: err.message
+    });
   }
 };
 
-// Create a new blog (admin)
+// CREATE BLOG
 exports.createBlog = async (req, res) => {
   try {
-    const blog = new Blog(req.body);
-    await blog.save();
-    return res.status(201).json({ success: true, message: 'Blog created successful', data: blog });
+    const blog = await Blog.create(req.body);
+
+    res.status(201).json({
+      success: true,
+      message: "Blog created",
+      data: blog
+    });
+
   } catch (err) {
-    return res.status(400).json({ success: false, message: err.message });
+    res.status(400).json({
+      success: false,
+      message: err.message
+    });
   }
 };
 
-// Update an existing blog (admin)
+// UPDATE BLOG
 exports.updateBlog = async (req, res) => {
   try {
-    const blog = await Blog.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const blog = await Blog.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+
     if (!blog) {
-      return res.status(404).json({ success: false, message: 'Blog not found' });
+      return res.status(404).json({
+        success: false,
+        message: "Blog not found"
+      });
     }
-    return res.json({ success: true, data: blog });
+
+    res.json({
+      success: true,
+      data: blog
+    });
+
   } catch (err) {
-    return res.status(400).json({ success: false, message: err.message });
+    res.status(400).json({
+      success: false,
+      message: err.message
+    });
   }
 };
 
-// Delete a blog (admin)
+// DELETE BLOG
 exports.deleteBlog = async (req, res) => {
   try {
     const blog = await Blog.findByIdAndDelete(req.params.id);
+
     if (!blog) {
-      return res.status(404).json({ success: false, message: 'Blog not found' });
+      return res.status(404).json({
+        success: false,
+        message: "Blog not found"
+      });
     }
-    return res.json({ success: true, message: 'Blog deleted successful' });
+
+    res.json({
+      success: true,
+      message: "Blog deleted"
+    });
+
   } catch (err) {
-    return res.status(500).json({ success: false, message: err.message });
+    res.status(500).json({
+      success: false,
+      message: err.message
+    });
   }
 };

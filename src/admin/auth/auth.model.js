@@ -11,18 +11,21 @@ const adminSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
+      lowercase: true,
+      trim: true,
     },
     password: {
       type: String,
-      required: true
+      required: true,
     },
     isSuperAdmin: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   {
-    timestamps: true
+    timestamps: true,
+    collection: "admins", // 👈 explicitly stored in "admins" collection
   }
 );
 
