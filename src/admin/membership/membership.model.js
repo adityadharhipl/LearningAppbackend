@@ -1,47 +1,119 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const membershipSchema = new mongoose.Schema(
+const websiteSchema = new mongoose.Schema(
   {
-    name: {
-      type: String,
-      required: true,
-      trim: true,
+    pricingSection: {
+      title: String,
+      plans: [
+        {
+          name: String,
+          tagLine: String,
+          badge: String,
+
+          price: {
+            monthly: Number,
+            yearly: Number,
+          },
+
+          duration: String,
+          description: String,
+
+          features: [
+            {
+              text: String,
+              included: Boolean,
+            },
+          ],
+
+          buttonText: String,
+          buttonLink: String,
+
+          isPopular: Boolean,
+        },
+      ],
     },
 
-    price: {
-      monthly: { type: Number, default: 0 },
-      yearly: { type: Number, default: 0 },
+    coachingSection: {
+      title: String,
+
+      description: String,
+
+      buttonText: String,
+
+      faq: [
+        {
+          question: String,
+          answer: String,
+        },
+      ],
     },
 
-    description: {
-      type: String,
+    testimonialSection: {
+      title: String,
+
+      students: [
+        {
+          image: String,
+          name: String,
+          designation: String,
+          description: String,
+        },
+      ],
     },
 
-    features: [
+    appSection: {
+      title: String,
+
+      androidButtonText: String,
+      androidLink: String,
+
+      iosButtonText: String,
+      iosLink: String,
+    },
+
+
+    finalsections: [
       {
-        text: { type: String },
-        included: { type: Boolean, default: true },
+        type: {
+          type: String,
+          enum: ["teacher", "creator"],
+        },
+        image: String,
+        title: String,
+        description: String,
+        buttonText: String,
+        buttonLink: String,
       },
     ],
+    // teacherSection: {
+    //   image: String,
 
-    isPopular: {
-      type: Boolean,
-      default: false,
-    },
+    //   title: String,
 
-    isActive: {
-      type: Boolean,
-      default: true,
-    },
+    //   description: String,
 
-    buttonText: {
-      type: String,
-      default: 'Get Started',
-    },
+    //   buttonText: String,
+
+    //   buttonLink: String,
+    // },
+
+    // courseCreatorSection: {
+    //   image: String,
+
+    //   title: String,
+
+    //   description: String,
+
+    //   buttonText: String,
+
+    //   buttonLink: String,
+    // },
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = mongoose.models.Membership || mongoose.model('Membership', membershipSchema);
+module.exports =
+  mongoose.models.Website ||
+  mongoose.model("Website", websiteSchema);
