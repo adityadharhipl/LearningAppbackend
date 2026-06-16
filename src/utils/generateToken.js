@@ -1,12 +1,10 @@
 const jwt = require("jsonwebtoken");
 
-const generateAdminToken = (
-  adminId
-) => {
+const generateToken = (id, role = "user") => {
   return jwt.sign(
     {
-      id: adminId,
-      role: "admin"
+      id,
+      role
     },
     process.env.JWT_SECRET,
     {
@@ -15,6 +13,6 @@ const generateAdminToken = (
   );
 };
 
-module.exports =  generateAdminToken;
+module.exports = generateToken;
 
 

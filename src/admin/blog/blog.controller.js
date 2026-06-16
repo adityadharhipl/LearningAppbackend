@@ -41,7 +41,7 @@ exports.createBlog = async (req, res) => {
     });
 
   } catch (err) {
-    res.status(400).json({
+    res.status(401).json({
       success: false,
       message: err.message
     });
@@ -70,7 +70,7 @@ exports.updateBlog = async (req, res) => {
     });
 
   } catch (err) {
-    res.status(400).json({
+    res.status(401).json({
       success: false,
       message: err.message
     });

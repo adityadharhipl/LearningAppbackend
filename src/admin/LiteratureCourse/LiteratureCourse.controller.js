@@ -11,7 +11,7 @@ exports.createCourse = async (req, res) => {
 
     res.status(201).json({
       success: true,
-      data: course,
+      course: course,
     });
   } catch (error) {
     res.status(500).json({
@@ -26,9 +26,11 @@ exports.createCourse = async (req, res) => {
  */
 exports.getCourses = async (req, res) => {
   try {
-    const courses = await LiteratureCourse.find().sort({
+    const docs = await LiteratureCourse.find().sort({
       createdAt: -1,
     });
+
+    const courses = docs.flatMap((doc) => doc.courses);
 
     res.status(200).json({
       success: true,

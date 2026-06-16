@@ -2,14 +2,16 @@ const LiteratureCourse = require("./literatureCourse.model");
 
 exports.getCourses = async (req, res) => {
   try {
-    const courses = await LiteratureCourse.find().sort({
+    const docs = await LiteratureCourse.find().sort({
       createdAt: -1,
     });
 
+    const allCourses = docs.flatMap((doc) => doc.courses);
+
     res.status(200).json({
       success: true,
-      count: courses.length,
-      data: courses,
+      count: allCourses.length,
+      courses: allCourses,
     });
   } catch (error) {
     res.status(500).json({

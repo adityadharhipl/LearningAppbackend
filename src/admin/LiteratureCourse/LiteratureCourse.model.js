@@ -26,7 +26,6 @@ const courseSchema = new mongoose.Schema(
     _id: true,
   }
 );
-
 const literatureCourseSchema = new mongoose.Schema(
   {
     courses: {
@@ -38,7 +37,6 @@ const literatureCourseSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
 module.exports = mongoose.model(
   "LiteratureCourse",
   literatureCourseSchema

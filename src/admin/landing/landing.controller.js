@@ -7,7 +7,7 @@ const LandingPage = require('./landing.model');
  */
 exports.createLanding = async (req, res) => {
   if (!req.body || typeof req.body !== 'object') {
-    return res.status(400).json({ success: false, message: 'Invalid request body' });
+    return res.status(401).json({ success: false, message: 'Invalid request body' });
   }
   try {
     const landing = await LandingPage.create(req.body);

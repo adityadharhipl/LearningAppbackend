@@ -5,7 +5,7 @@ exports.subscribe = async (req, res) => {
     const { email } = req.body;
 
     if (!email) {
-      return res.status(400).json({
+      return res.status(401).json({
         success: false,
         message: "Email is required",
       });

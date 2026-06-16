@@ -7,7 +7,7 @@ exports.createAdmin = async (req, res) => {
     const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
-      return res.status(400).json({
+      return res.status(401).json({
         success: false,
         message: "All fields are required",
       });
@@ -16,7 +16,7 @@ exports.createAdmin = async (req, res) => {
     const exist = await Admin.findOne({ email: email.toLowerCase().trim() });
 
     if (exist) {
-      return res.status(400).json({
+      return res.status(401).json({
         success: false,
         message: "Admin already exists",
       });

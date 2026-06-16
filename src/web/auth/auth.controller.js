@@ -11,7 +11,7 @@ exports.register = async (req, res) => {
     const exist = await User.findOne({ email });
 
     if (exist) {
-      return res.status(400).json({
+      return res.status(401).json({
         success: false,
         message: "Email already exists"
       });
@@ -65,7 +65,7 @@ exports.login = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-      return res.status(400).json({
+      return res.status(401).json({
         success: false,
         message: "Invalid Email"
       });
@@ -74,7 +74,7 @@ exports.login = async (req, res) => {
     const match = await bcrypt.compare(password, user.password);
 
     if (!match) {
-      return res.status(400).json({
+      return res.status(401).json({
         success: false,
         message: "Invalid Password"
       });
@@ -150,7 +150,7 @@ exports.resetPassword = async (req, res) => {
     });
 
     if (!user) {
-      return res.status(400).json({
+      return res.status(401).json({
         success: false,
         message: "Invalid or Expired Token"
       });

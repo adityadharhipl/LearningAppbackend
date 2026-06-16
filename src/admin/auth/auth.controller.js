@@ -10,7 +10,7 @@ exports.login = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({
+      return res.status(401).json({
         success: false,
         message: "Email and Password are required",
       });
@@ -91,7 +91,7 @@ exports.forgotPassword = async (req, res) => {
     const { email } = req.body;
 
     if (!email) {
-      return res.status(400).json({
+      return res.status(401).json({
         success: false,
         message: "Email is required",
       });
@@ -161,7 +161,7 @@ exports.resetPassword = async (req, res) => {
     const { password } = req.body;
 
     if (!password) {
-      return res.status(400).json({
+      return res.status(401).json({
         success: false,
         message: "Password is required",
       });
@@ -180,7 +180,7 @@ exports.resetPassword = async (req, res) => {
     });
 
     if (!admin) {
-      return res.status(400).json({
+      return res.status(401).json({
         success: false,
         message: "Invalid or expired token",
       });

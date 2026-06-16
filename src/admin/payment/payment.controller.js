@@ -3,10 +3,10 @@ const Course = require('../../../models/Course');
 const ApiResponse = require('../../../utils/ApiResponse');
 const AppError = require('../../../utils/AppError');
 
-// 1. Checkout Page ka Data Load karna
+// 1. Load Checkout Page Data
 exports.getCheckoutPage = async (req, res, next) => {
     try {
-        // Maan lijiye cart me ye items hain (Session se bhi le sakte hain)
+        // Assume these items are in the cart (Can also be fetched from Session)
         const cartItems = await Course.find().limit(2); 
         
         const subtotal = cartItems.reduce((acc, item) => acc + item.price, 0);
@@ -26,7 +26,7 @@ exports.getCheckoutPage = async (req, res, next) => {
     }
 };
 
-// 2. "Confirm Payment" button click hone par logic
+// 2. Logic on "Confirm Payment" button click
 exports.processCheckout = async (req, res, next) => {
     try {
         const { cardName, cardNumber, paymentMethod, totalAmount, items } = req.body;

@@ -56,7 +56,7 @@ exports.createMembership = async (req, res) => {
       data: membership,
     });
   } catch (err) {
-    return res.status(400).json({
+    return res.status(401).json({
       success: false,
       message: err.message,
     });
@@ -88,7 +88,7 @@ exports.updateMembership = async (req, res) => {
       data: membership,
     });
   } catch (err) {
-    return res.status(400).json({
+    return res.status(401).json({
       success: false,
       message: err.message,
     });
