@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
 
 const sendEmail = async ({ email, subject, html }) => {
   const info = await transporter.sendMail({
-    from: "adityadhar.hipl@gmail.com",
+    from: process.env.EMAIL_FROM || "hello@demomailtrap.com",
     to: email,
     subject,
     html,
@@ -19,5 +19,14 @@ const sendEmail = async ({ email, subject, html }) => {
 
   console.log("Mail Sent:", info.messageId);
 };
+
+// Add this to sendEmail.js to debug
+transporter.verify(function (error, success) {
+  if (error) {
+    console.log("SMTP Connection Error:", error);
+  } else {
+    console.log("Server is ready to take our messages");
+  }
+});
 
 module.exports = sendEmail;
