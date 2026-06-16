@@ -1,10 +1,7 @@
 const Membership = require('./membership.model');
-
 // Public Website Data
 exports.getAllMemberships = async (req, res) => {
   try {
-    console.log('========== WEBSITE GET ==========');
-
     const memberships = await Membership.find().sort({
       createdAt: -1,
     });
@@ -40,7 +37,6 @@ exports.getAllMemberships = async (req, res) => {
  return res.status(200).json({
   success: true,
   count: memberships.length,
-
   pricingSection: firstRecord.pricingSection || {},
   coachingSection: firstRecord.coachingSection || {},
   testimonialSection: firstRecord.testimonialSection || {},
