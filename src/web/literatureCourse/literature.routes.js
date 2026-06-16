@@ -1,15 +1,12 @@
-// web/course/course.routes.js
-
 const router = require("express").Router();
 
 const {
   getCourses,
   getCourseDetails,
-} = require("./course.controller");
+} = require("./literature.controller");
 
 router.get("/", getCourses);
 
 router.get("/:id", getCourseDetails);
-
 
 module.exports = router;

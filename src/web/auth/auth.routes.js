@@ -7,7 +7,8 @@ const {
   resetPassword,
   profile,
   logout,
-  getUsers
+  getUsers,
+  updateProfile
 } = require("./auth.controller");
 
 router.post("/register", register);
@@ -17,5 +18,6 @@ router.post("/reset-password/:token", resetPassword);
 router.get("/profile", auth, profile);
 router.post("/logout", logout);
 router.get("/users", auth, getUsers);
+router.patch("/profile",auth, updateProfile);
 
 module.exports = router;

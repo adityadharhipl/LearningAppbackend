@@ -40,6 +40,18 @@ app.use("/api/v1/admin/landing", adminLandingRoutes);
 const adminCourseRoutes = require("./admin/course/course.routes");
 app.use("/api/v1/admin/courses", adminCourseRoutes);
 
+// Literature Courses
+const adminLiteratureRoutes = require(
+  "./admin/LiteratureCourse/LiteratureCourse.route"
+);
+
+
+
+app.use(
+  "/api/v1/admin/literature-courses",
+  adminLiteratureRoutes
+);
+
 /* =====================================================
    Website Routes
 ===================================================== */
@@ -59,6 +71,14 @@ app.use("/api/v1/web/courses", webCourseRoutes);
 const newsletterRoutes = require("./web/newsletter/newsletter.routes");
 
 app.use("/api/v1/web/newsletter", newsletterRoutes);
+const webLiteratureRoutes = require(
+  "./web/literatureCourse/literature.routes"
+);
+app.use(
+  "/api/v1/web/literature-courses",
+  webLiteratureRoutes
+);
+
 
 /* =====================================================
    Modular Routes
