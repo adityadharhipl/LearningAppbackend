@@ -5,6 +5,7 @@ exports.getCourses = async (req, res) => {
     const docs = await LiteratureCourse.find().sort({
       createdAt: -1,
     });
+    console.log(docs,"docs")
 
     const allCourses = docs.flatMap((doc) => doc.courses);
 
@@ -21,22 +22,20 @@ exports.getCourses = async (req, res) => {
   }
 };
 
-exports.getCourseDetails = async (
-  req,
-  res
-) => {
+exports.getCourseDetails = async (req, res) => {
   try {
-    const course =
-      await LiteratureCourse.findById(
-        req.params.id
-      );
+    const doc = await LiteratureCourse.findOne({
+      "courses._id": req.params.id,
+    });
 
-    if (!course) {
+    if (!doc) {
       return res.status(404).json({
         success: false,
         message: "Course not found",
       });
     }
+
+    const course = doc.courses.id(req.params.id); 
 
     res.status(200).json({
       success: true,

@@ -6,11 +6,11 @@ exports.getAllBlogs = async (req, res) => {
   try {
     const { page, limit, skip } = getPagination(req.query);
 
-    // 🔥 FEATURED BLOG
+    //  FEATURED BLOG
     const featuredBlog = await Blog.findOne({ isFeatured: true })
       .sort({ createdAt: -1 });
 
-    // 🔥 CATEGORY WISE BLOGS
+    // CATEGORY WISE BLOGS
     const categories = await Blog.distinct('category');
 
    const readingBlogList = {};

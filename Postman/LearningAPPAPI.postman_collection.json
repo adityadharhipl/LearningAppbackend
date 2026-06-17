@@ -1,0 +1,1554 @@
+{
+  "info": {
+    "_postman_id": "74ee2572-9332-4f83-a6df-4b2a4dcfa44c",
+    "name": "LearningAPPAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49776630",
+    "_collection_link": "https://go.postman.co/collection/49776630-74ee2572-9332-4f83-a6df-4b2a4dcfa44c?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Auth",
+          "item": [
+            {
+              "name": "Login",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"admin22@yopmail.com\",\r\n  \"password\": \"admins@1234\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/auth/login",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Profile",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjdmZWE3N2M4N2I4ZDhmNzU0ZTBjOSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTAwNjA5NSwiZXhwIjoxNzgxNjEwODk1fQ.9TFQSNTztJJ3wG0rjBHjClvg2YPmGY_ai_QKRmcYxXI",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/auth/profile",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "auth",
+                    "profile"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetAllUser",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            },
+            {
+              "name": "ForgetPassword",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMmQ0MWIwMjhmNWIzYjc2ZDJmODg0YSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTQ5NzE5MSwiZXhwIjoxNzgyMTAxOTkxfQ.x7Hbmi__h3Ciyo4qd7Wxrox8qy5PUTta2TyyrMzlSuo",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"admin@elearning.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/auth/forgot-password",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "auth",
+                    "forgot-password"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "ResetPassword",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"password\": \"Admin@12345\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://192.168.1.13:5001/api/v1/admin/auth/reset-password/abc123xyz456",
+                  "protocol": "http",
+                  "host": [
+                    "192",
+                    "168",
+                    "1",
+                    "13"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "auth",
+                    "reset-password",
+                    "abc123xyz456"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/auth/test-mail",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "auth",
+                    "test-mail"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Leading",
+          "item": [
+            {
+              "name": "Landing",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMmQ0MWIwMjhmNWIzYjc2ZDJmODg0YSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTUyMzYzMiwiZXhwIjoxNzgyMTI4NDMyfQ.rnMs81CJMm4mhiDiyoPuXxMbr5UorzSGaEXcuMXcQ1M",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/landing",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "landing"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CreateLanding",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMmQ0MWIwMjhmNWIzYjc2ZDJmODg0YSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTUyMzYzMiwiZXhwIjoxNzgyMTI4NDMyfQ.rnMs81CJMm4mhiDiyoPuXxMbr5UorzSGaEXcuMXcQ1M",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"hero\": {\r\n    \"title\": \"Learning Online is now much easier\",\r\n    \"subtitle\": \"TOTC\",\r\n    \"description\": \"TOTC is an interesting platform that will teach you in a more interactive way.\",\r\n    \"image\": \"https://example.com/hero.png\",\r\n    \"buttonText\": \"Join for Free\"\r\n  },\r\n  \"statistics\": {\r\n    \"Students\": 15000,\r\n    \"Total_success\": 75000,\r\n    \"Main_question\": 1200,\r\n    \"Chief_experts\": 200,\r\n    \"Year_of_exp\": 15\r\n  },\r\n  \"CloudSoftware\": [\r\n    {\r\n      \"title\": \"Online Billing\",\r\n      \"description\": \"Manage billing and payments easily.\",\r\n      \"icon\": \"https://example.com/icon1.png\"\r\n    },\r\n    {\r\n      \"title\": \"Scheduling\",\r\n      \"description\": \"Manage class schedules efficiently.\",\r\n      \"icon\": \"https://example.com/icon2.png\"\r\n    },\r\n    {\r\n      \"title\": \"Customer Tracking\",\r\n      \"description\": \"Automate and track emails to individuals or groups.\",\r\n      \"icon\": \"https://example.com/icon3.png\"\r\n    }\r\n  ],\r\n  \"WhatIsTOTC\": {\r\n    \"title\": \"What is TOTC?\",\r\n    \"description\": \"TOTC is a platform that allows educators to create online classes and manage students.\",\r\n    \"ForInstructors\": {\r\n      \"title\": \"FOR INSTRUCTORS\",\r\n      \"image\": \"https://example.com/instructor.jpg\",\r\n      \"buttonText\": \"Start a class today\"\r\n    },\r\n    \"ForStudents\": {\r\n      \"title\": \"FOR STUDENTS\",\r\n      \"image\": \"https://example.com/student.jpg\",\r\n      \"buttonText\": \"Enter access code\"\r\n    }\r\n  },\r\n  \"EverythingYouCanDoWithTOTC\": {\r\n    \"title\": \"Everything you can do in a physical classroom\",\r\n    \"highlightedText\": \"you can do with TOTC\",\r\n    \"description\": \"School management software helps traditional and online schools manage scheduling, attendance, payments and virtual classrooms.\",\r\n    \"image\": \"https://example.com/classroom.jpg\",\r\n    \"buttonText\": \"Learn more\",\r\n    \"videoUrl\": \"https://example.com/video.mp4\"\r\n  },\r\n  \"OurFeatures\": {\r\n    \"title\": \"Our Features\",\r\n    \"description\": \"This very extraordinary feature can make learning activities more efficient.\",\r\n    \"features\": [\r\n      {\r\n        \"title\": \"A user interface designed for the classroom\",\r\n        \"description\": \"Teachers don't get lost in the grid view and have a dedicated Podium space. Teachers can easily see all students and class data at one time.\",\r\n        \"image\": \"https://example.com/interface.jpg\"\r\n      },\r\n      {\r\n        \"title\": \"Tools For Teachers And Learners\",\r\n        \"description\": \"Class has a dynamic set of teaching tools built to be deployed and used during class. Teachers can hand out assignments in real-time.\",\r\n        \"image\": \"https://example.com/tools.jpg\"\r\n      },\r\n      {\r\n        \"title\": \"Assessments, Quizzes, Tests\",\r\n        \"description\": \"Easily launch live assignments, quizzes and tests. Results are automatically entered in the online gradebook.\",\r\n        \"image\": \"https://example.com/quiz.jpg\"\r\n      },\r\n      {\r\n        \"title\": \"Class Management Tools for Educators\",\r\n        \"description\": \"Class provides tools to help run and manage the class such as attendance, grading and communication.\",\r\n        \"image\": \"https://example.com/class-management.jpg\"\r\n      },\r\n      {\r\n        \"title\": \"One-on-One Discussions\",\r\n        \"description\": \"Teachers and students can communicate privately in a secure environment.\",\r\n        \"image\": \"https://example.com/discussion.jpg\"\r\n      }\r\n    ]\r\n  },\r\n  \"IntegrationSection\": {\r\n    \"title\": \"Integrations\",\r\n    \"description\": \"Connect with your favorite learning tools.\",\r\n    \"image\": \"https://example.com/integration.jpg\"\r\n  },\r\n  \"Testimonials\": [\r\n    {\r\n      \"name\": \"Lina\",\r\n      \"designation\": \"Student\",\r\n      \"image\": \"https://example.com/lina.jpg\",\r\n      \"review\": \"TOTC made online learning very easy and interactive.\",\r\n      \"rating\": 5\r\n    }\r\n  ],\r\n  \"LatestNewsAndResources\": {\r\n    \"title\": \"Latest News and Resources\",\r\n    \"description\": \"See the developments that have occurred to TOTC in the world\",\r\n\r\n    \"featuredNews\": {\r\n      \"title\": \"Class adds $30 million to its balance sheet for a Zoom-friendly edtech solution\",\r\n      \"description\": \"Class, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively with Zoom.\",\r\n      \"image\": \"https://example.com/featured-news.jpg\",\r\n      \"tag\": \"NEWS\",\r\n      \"readMoreLink\": \"/blog/class-adds-30-million\"\r\n    },\r\n\r\n    \"news\": [\r\n      {\r\n        \"title\": \"Class Technologies Inc. Closes $30 Million Series A Financing\",\r\n        \"description\": \"Class Technologies Inc. announces major funding.\",\r\n        \"image\": \"https://example.com/news1.jpg\",\r\n        \"tag\": \"PRESS RELEASE\",\r\n        \"date\": \"2025-09-01\"\r\n      },\r\n      {\r\n        \"title\": \"Zoom's earliest investors are betting millions on a better Zoom for schools\",\r\n        \"description\": \"Zoom was never created to be a consumer product.\",\r\n        \"image\": \"https://example.com/news2.jpg\",\r\n        \"tag\": \"NEWS\",\r\n        \"date\": \"2025-09-02\"\r\n      },\r\n      {\r\n        \"title\": \"Former Blackboard CEO raises $16M to bring LMS features to Zoom classrooms\",\r\n        \"description\": \"Investors have reaped financial returns from betting on Zoom.\",\r\n        \"image\": \"https://example.com/news3.jpg\",\r\n        \"tag\": \"NEWS\",\r\n        \"date\": \"2025-09-03\"\r\n      }\r\n    ]\r\n  }\r\n\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/landing",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "landing"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UpdateLeading",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMmQ0MWIwMjhmNWIzYjc2ZDJmODg0YSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTUyMzYzMiwiZXhwIjoxNzgyMTI4NDMyfQ.rnMs81CJMm4mhiDiyoPuXxMbr5UorzSGaEXcuMXcQ1M",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"hero\": {\r\n    \"title\": \"Studying Online is now much easier\",\r\n    \"subtitle\": \"TOTC\",\r\n    \"description\": \"TOTC is an interesting platform that will teach you in a more interactive way.\",\r\n    \"image\": \"https://example.com/hero.png\",\r\n    \"buttonText\": \"Join for Free\"\r\n  },\r\n  \"statistics\": {\r\n    \"Students\": 15000,\r\n    \"Total_success\": 75000,\r\n    \"Main_question\": 1200,\r\n    \"Chief_experts\": 200,\r\n    \"Year_of_exp\": 15\r\n  },\r\n  \"CloudSoftware\": [\r\n    {\r\n      \"title\": \"Online Billing\",\r\n      \"description\": \"Manage billing and payments easily.\",\r\n      \"icon\": \"https://example.com/icon1.png\"\r\n    },\r\n    {\r\n      \"title\": \"Scheduling\",\r\n      \"description\": \"Manage class schedules efficiently.\",\r\n      \"icon\": \"https://example.com/icon2.png\"\r\n    },\r\n    {\r\n      \"title\": \"Customer Tracking\",\r\n      \"description\": \"Automate and track emails to individuals or groups.\",\r\n      \"icon\": \"https://example.com/icon3.png\"\r\n    }\r\n  ],\r\n  \"WhatIsTOTC\": {\r\n    \"title\": \"What is TOTC?\",\r\n    \"description\": \"TOTC is a platform that allows educators to create online classes and manage students.\",\r\n    \"ForInstructors\": {\r\n      \"title\": \"FOR INSTRUCTORS\",\r\n      \"image\": \"https://example.com/instructor.jpg\",\r\n      \"buttonText\": \"Start a class today\"\r\n    },\r\n    \"ForStudents\": {\r\n      \"title\": \"FOR STUDENTS\",\r\n      \"image\": \"https://example.com/student.jpg\",\r\n      \"buttonText\": \"Enter access code\"\r\n    }\r\n  },\r\n  \"EverythingYouCanDoWithTOTC\": {\r\n    \"title\": \"Everything you can do in a physical classroom\",\r\n    \"highlightedText\": \"you can do with TOTC\",\r\n    \"description\": \"School management software helps traditional and online schools manage scheduling, attendance, payments and virtual classrooms.\",\r\n    \"image\": \"https://example.com/classroom.jpg\",\r\n    \"buttonText\": \"Learn more\",\r\n    \"videoUrl\": \"https://example.com/video.mp4\"\r\n  },\r\n  \"OurFeatures\": {\r\n    \"title\": \"Our Features\",\r\n    \"description\": \"This very extraordinary feature can make learning activities more efficient.\",\r\n    \"features\": [\r\n      {\r\n        \"title\": \"A user interface designed for the classroom\",\r\n        \"description\": \"Teachers don't get lost in the grid view and have a dedicated Podium space. Teachers can easily see all students and class data at one time.\",\r\n        \"image\": \"https://example.com/interface.jpg\"\r\n      },\r\n      {\r\n        \"title\": \"Tools For Teachers And Learners\",\r\n        \"description\": \"Class has a dynamic set of teaching tools built to be deployed and used during class. Teachers can hand out assignments in real-time.\",\r\n        \"image\": \"https://example.com/tools.jpg\"\r\n      },\r\n      {\r\n        \"title\": \"Assessments, Quizzes, Tests\",\r\n        \"description\": \"Easily launch live assignments, quizzes and tests. Results are automatically entered in the online gradebook.\",\r\n        \"image\": \"https://example.com/quiz.jpg\"\r\n      },\r\n      {\r\n        \"title\": \"Class Management Tools for Educators\",\r\n        \"description\": \"Class provides tools to help run and manage the class such as attendance, grading and communication.\",\r\n        \"image\": \"https://example.com/class-management.jpg\"\r\n      },\r\n      {\r\n        \"title\": \"One-on-One Discussions\",\r\n        \"description\": \"Teachers and students can communicate privately in a secure environment.\",\r\n        \"image\": \"https://example.com/discussion.jpg\"\r\n      }\r\n    ]\r\n  },\r\n  \"IntegrationSection\": {\r\n    \"title\": \"Integrations\",\r\n    \"description\": \"Connect with your favorite learning tools.\",\r\n    \"image\": \"https://example.com/integration.jpg\"\r\n  },\r\n  \"Testimonials\": [\r\n    {\r\n      \"name\": \"Lina\",\r\n      \"designation\": \"Student\",\r\n      \"image\": \"https://example.com/lina.jpg\",\r\n      \"review\": \"TOTC made online learning very easy and interactive.\",\r\n      \"rating\": 5\r\n    }\r\n  ],\r\n  \"LatestNewsAndResources\": [\r\n    {\r\n      \"title\": \"Class adds new virtual classroom feature\",\r\n      \"description\": \"A new update improves classroom engagement.\",\r\n      \"image\": \"https://example.com/news1.jpg\",\r\n      \"date\": \"2025-09-01\"\r\n    }\r\n  ],\r\n  \"blogs\": [\r\n    {\r\n      \"title\": \"How Technology Improves Education\",\r\n      \"image\": \"https://example.com/blog1.jpg\",\r\n      \"description\": \"Technology is transforming the way students learn.\",\r\n      \"tags\": [\"Education\", \"Technology\", \"E-Learning\"]\r\n    },\r\n    {\r\n      \"title\": \"Best Online Learning Practices\",\r\n      \"image\": \"https://example.com/blog2.jpg\",\r\n      \"description\": \"Tips and tricks for effective online education.\",\r\n      \"tags\": [\"Online Learning\", \"Students\", \"Productivity\"]\r\n    }\r\n  ]\r\n\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/landing/6a2b8d79105cc87d578f2066",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "landing",
+                    "6a2b8d79105cc87d578f2066"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjdmZWE3N2M4N2I4ZDhmNzU0ZTBjOSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTA4NTQyNSwiZXhwIjoxNzgxNjkwMjI1fQ.LqLoWmMMHysxfzTyCaU-YdFcLmopQFCGHt0sp0b_0SQ",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/landing/6a29307acf4cad26f8581414",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "landing",
+                    "6a29307acf4cad26f8581414"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Blog",
+          "item": [
+            {
+              "name": "Create Blog",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"Why Swift UI Should Be on the Radar of Every Mobile Developer\",\r\n  \"slug\": \"swift-ui-mobile-developers\",\r\n  \"description\": \"SwiftUI helps developers build modern iOS apps faster\",\r\n  \"content\": \"Full content here...\",\r\n  \"image\": \"https://example.com/image.jpg\",\r\n\r\n  \"category\": \"Mobile Development\",\r\n\r\n  \"author\": {\r\n    \"name\": \"John Doe\",\r\n    \"image\": \"https://example.com/author.jpg\"\r\n  },\r\n\r\n  \"tags\": [\"SwiftUI\", \"iOS\", \"Mobile\"],\r\n\r\n  \"isFeatured\": true,\r\n  \"isMarketing\": true,\r\n\r\n  \"views\": 1200,\r\n  \"readTime\": \"5 min read\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://192.168.1.13:5001/api/v1/admin/blogs/add",
+                  "protocol": "http",
+                  "host": [
+                    "192",
+                    "168",
+                    "1",
+                    "13"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "blogs",
+                    "add"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Blog",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://192.168.1.13:5001/api/v1/admin/blogs/",
+                  "protocol": "http",
+                  "host": [
+                    "192",
+                    "168",
+                    "1",
+                    "13"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "blogs",
+                    ""
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"Why Swift UI Should Be on the Radar of Every Mobile Developer\",\r\n  \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempos Lorem ipsum dolor sitamet, consectetur adipiscing elit, sed do eiusmod tempor\",\r\n  \"content\": \"By Themadbrains in inspiration\",\r\n  \"image\": \"https://example.com/images/async-await.png\",\r\n  \"category\": \"Programming\",\r\n  \"author\": {\r\n    \"name\": \"John Doe\",\r\n    \"image\": \"https://example.com/avatars/johndoe.jpg\"\r\n  },\r\n  \"price\": \"10009\",               \r\n  \"views\": \"2000\",               \r\n  \"isFeatured\": false,        \r\n  \"isMarketing\": false        \r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://192.168.1.13:5001/api/v1/admin/blogs/edit/6a29422c1fdc2c3f4c0eb810",
+                  "protocol": "http",
+                  "host": [
+                    "192",
+                    "168",
+                    "1",
+                    "13"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "blogs",
+                    "edit",
+                    "6a29422c1fdc2c3f4c0eb810"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://192.168.1.13:5001/api/v1/admin/blogs/delete/6a29422c1fdc2c3f4c0eb810",
+                  "protocol": "http",
+                  "host": [
+                    "192",
+                    "168",
+                    "1",
+                    "13"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "blogs",
+                    "delete",
+                    "6a29422c1fdc2c3f4c0eb810"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Profile",
+          "item": [
+            {
+              "name": "Profile",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjdmZWE3N2M4N2I4ZDhmNzU0ZTBjOSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTE2MDQ2MywiZXhwIjoxNzgxNzY1MjYzfQ.BnoL0ctTDrA11bspD0g4a0MPhhLDB-u291DuSO3-fKo",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://192.168.1.13:5001/api/v1/admin/auth/profile",
+                  "protocol": "http",
+                  "host": [
+                    "192",
+                    "168",
+                    "1",
+                    "13"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "auth",
+                    "profile"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjdmZWE3N2M4N2I4ZDhmNzU0ZTBjOSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTE2Mzg5NCwiZXhwIjoxNzgxNzY4Njk0fQ.zwjF-El7MeJjijqEqFciQD3Q0GCC12XIOoTfs3LszWg",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"New Admin\",\r\n  \"email\": \"newadmin@gmail.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://192.168.1.13:5001/api/v1/admin/profile/6a27fea77c87b8d8f754e0c9",
+                  "protocol": "http",
+                  "host": [
+                    "192",
+                    "168",
+                    "1",
+                    "13"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "profile",
+                    "6a27fea77c87b8d8f754e0c9"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetbyId",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjdmZWE3N2M4N2I4ZDhmNzU0ZTBjOSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTE2Mzg5NCwiZXhwIjoxNzgxNzY4Njk0fQ.zwjF-El7MeJjijqEqFciQD3Q0GCC12XIOoTfs3LszWg",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://192.168.1.13:5001/api/v1/admin/profile/6a27fea77c87b8d8f754e0c9",
+                  "protocol": "http",
+                  "host": [
+                    "192",
+                    "168",
+                    "1",
+                    "13"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "profile",
+                    "6a27fea77c87b8d8f754e0c9"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://192.168.1.13:5001/api/v1/admin/profile/6a27fea77c87b8d8f754e0c9",
+                  "protocol": "http",
+                  "host": [
+                    "192",
+                    "168",
+                    "1",
+                    "13"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "profile",
+                    "6a27fea77c87b8d8f754e0c9"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Member",
+          "item": [
+            {
+              "name": "CreateMember",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMmQ0MWIwMjhmNWIzYjc2ZDJmODg0YSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTM1MDg2NiwiZXhwIjoxNzgxOTU1NjY2fQ.U1TGf5gneQJY6QPDfEOg4gHLEoalMfFJbZ5xEMbmz7U",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Corporate\",\r\n  \"price\": {\r\n    \"monthly\": 12,\r\n    \"yearly\": 120\r\n  },\r\n  \"description\": \"Perfect for teams and organizations\",\r\n  \"buttonText\": \"Extended License\",\r\n  \"isPopular\": false,\r\n  \"isActive\": true,\r\n\r\n  \"features\": [\r\n    {\r\n      \"text\": \"Components-driven system\",\r\n      \"included\": true\r\n    },\r\n    {\r\n      \"text\": \"Sales-boosting landing pages\",\r\n      \"included\": true\r\n    },\r\n    {\r\n      \"text\": \"Awesome Feather icons pack\",\r\n      \"included\": true\r\n    },\r\n    {\r\n      \"text\": \"Themed into 3 different styles\",\r\n      \"included\": true\r\n    }\r\n  ],\r\n\r\n  \"pricingSection\": {\r\n    \"title\": \"Affordable pricing\",\r\n    \"plans\": [\r\n      {\r\n        \"price_info\": \"Forever\",\r\n        \"tagLine\": \"Like a pussy\",\r\n        \"price\": {\r\n          \"monthly\": 0,\r\n          \"yearly\": 0\r\n        },\r\n        \"duration\": \"forever\",\r\n        \"description\": \"Free plan for beginners\",\r\n        \"features\": [\r\n          {\r\n            \"text\": \"Components-driven system\",\r\n            \"included\": true\r\n          },\r\n          {\r\n            \"text\": \"Sales-boosting landing pages\",\r\n            \"included\": true\r\n          },\r\n          {\r\n            \"text\": \"Awesome Feather icons pack\",\r\n            \"included\": true\r\n          }\r\n        ],\r\n        \"buttonText\": \"Try for free\",\r\n        \"buttonLink\": \"/register\",\r\n        \"isPopular\": false\r\n      },\r\n      {\r\n        \"tagLine\": \"Individual\",\r\n        \"badge\": \"BEST\",\r\n        \"price\": {\r\n          \"monthly\": 24,\r\n          \"yearly\": 240\r\n        },\r\n        \"duration\": \"month\",\r\n        \"description\": \"Best choice for individual learners\",\r\n        \"features\": [\r\n          {\r\n            \"text\": \"Components-driven system\",\r\n            \"included\": true\r\n          },\r\n          {\r\n            \"text\": \"Sales-boosting landing pages\",\r\n            \"included\": true\r\n          },\r\n          {\r\n            \"text\": \"Awesome Feather icons pack\",\r\n            \"included\": true\r\n          },\r\n          {\r\n            \"text\": \"Themed into 3 different styles\",\r\n            \"included\": true\r\n          },\r\n          {\r\n            \"text\": \"Will help to learn Figma\",\r\n            \"included\": true\r\n          }\r\n        ],\r\n        \"buttonText\": \"Regular License\",\r\n        \"buttonLink\": \"/buy/individual\",\r\n        \"isPopular\": true\r\n      },\r\n      {\r\n        \"tagLine\": \"Corporate\",\r\n        \"price\": {\r\n          \"monthly\": 12,\r\n          \"yearly\": 120\r\n        },\r\n        \"duration\": \"editor\",\r\n        \"description\": \"Perfect for teams and organizations\",\r\n        \"features\": [\r\n          {\r\n            \"text\": \"Components-driven system\",\r\n            \"included\": true\r\n          },\r\n          {\r\n            \"text\": \"Sales-boosting landing pages\",\r\n            \"included\": true\r\n          },\r\n          {\r\n            \"text\": \"Awesome Feather icons pack\",\r\n            \"included\": true\r\n          },\r\n          {\r\n            \"text\": \"Themed into 3 different styles\",\r\n            \"included\": true\r\n          }\r\n        ],\r\n        \"buttonText\": \"Extended License\",\r\n        \"buttonLink\": \"/buy/corporate\",\r\n        \"isPopular\": false\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"coachingSection\": {\r\n    \"title\": \"Online coaching lessons for remote learning\",\r\n    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\",\r\n    \"buttonText\": \"Start Learning Now\",\r\n    \"faq\": [\r\n      {\r\n        \"question\": \"Lorem ipsum dolor sit amet\",\r\n        \"answer\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        \"question\": \"Consectetur adipisicing elit sed do\",\r\n        \"answer\": \"Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\"\r\n      },\r\n      {\r\n        \"question\": \"Extended lessons Lorem ipsum\",\r\n        \"answer\": \"Ut enim ad minim veniam quis nostrud exercitation ullamco laboris.\"\r\n      },\r\n      {\r\n        \"question\": \"Lorem ipsum dolor sit amet\",\r\n        \"answer\": \"Duis aute irure dolor in reprehenderit in voluptate velit esse.\"\r\n      },\r\n      {\r\n        \"question\": \"Lorem ipsum dolor sit amet\",\r\n        \"answer\": \"Excepteur sint occaecat cupidatat non proident.\"\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"testimonialSection\": {\r\n    \"title\": \"What our students have to say\",\r\n    \"students\": [\r\n      {\r\n        \"image\": \"/uploads/student1.jpg\",\r\n        \"name\": \"Bulkin Simons\",\r\n        \"designation\": \"Student\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        \"image\": \"/uploads/student2.jpg\",\r\n        \"name\": \"Bulkin Simons\",\r\n        \"designation\": \"Student\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        \"image\": \"/uploads/student3.jpg\",\r\n        \"name\": \"Bulkin Simons\",\r\n        \"designation\": \"Student\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        \"image\": \"/uploads/student4.jpg\",\r\n        \"name\": \"Bulkin Simons\",\r\n        \"designation\": \"Student\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"appSection\": {\r\n    \"title\": \"APP is available for free\",\r\n    \"androidButtonText\": \"Android APP\",\r\n    \"androidLink\": \"https://play.google.com/store/apps\",\r\n    \"iosButtonText\": \"iOS APP\",\r\n    \"iosLink\": \"https://apps.apple.com\"\r\n  },\r\n\r\n  \"finalsections\": [\r\n    {\r\n      \"type\": \"teacher\",\r\n      \"image\": \"/uploads/become-teacher.jpg\",\r\n      \"title\": \"Become a Teacher\",\r\n      \"description\": \"Share your knowledge and teach thousands of students around the world.\",\r\n      \"buttonText\": \"Become Teacher\",\r\n      \"buttonLink\": \"/become-teacher\"\r\n    },\r\n    {\r\n      \"type\": \"creator\",\r\n      \"image\": \"/uploads/course-creator.jpg\",\r\n      \"title\": \"Become a Course Creator\",\r\n      \"description\": \"Create, publish and sell your online courses easily.\",\r\n      \"buttonText\": \"Become Creator\",\r\n      \"buttonLink\": \"/become-creator\"\r\n    }\r\n  ]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/memberships/add",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "memberships",
+                    "add"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetAllMemberships",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMmQ0MWIwMjhmNWIzYjc2ZDJmODg0YSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTM1MTM4MiwiZXhwIjoxNzgxOTU2MTgyfQ.pvJwN8qTtXDelkjudMEmt7Jbd8W8AQVg_dArxCkB-pA",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/memberships",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "memberships"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UpdateMember",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMmQ0MWIwMjhmNWIzYjc2ZDJmODg0YSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTM1MTM4MiwiZXhwIjoxNzgxOTU2MTgyfQ.pvJwN8qTtXDelkjudMEmt7Jbd8W8AQVg_dArxCkB-pA",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Corporate\",\r\n  \"price\": {\r\n    \"monthly\": 999,\r\n    \"yearly\": 9999\r\n  },\r\n  \"description\": \"Designed for enterprises requiring advanced collaboration, security, and dedicated support.\",\r\n  \"features\": [\r\n    {\r\n      \"text\": \"Unlimited components\",\r\n      \"included\": true\r\n    },\r\n    {\r\n      \"text\": \"Unlimited team members\",\r\n      \"included\": true\r\n    },\r\n    {\r\n      \"text\": \"Dedicated account manager\",\r\n      \"included\": true\r\n    },\r\n    {\r\n      \"text\": \"Enterprise security\",\r\n      \"included\": true\r\n    },\r\n    {\r\n      \"text\": \"24/7 priority support\",\r\n      \"included\": true\r\n    }\r\n  ],\r\n  \"isPopular\": false,\r\n  \"isActive\": true,\r\n  \"buttonText\": \"Contact Sales\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/memberships/edit/6a2d41f41b7e40755c8208c2",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "memberships",
+                    "edit",
+                    "6a2d41f41b7e40755c8208c2"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DeleteMember",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/memberships/delete/6a2d41f41b7e40755c8208c2",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "memberships",
+                    "delete",
+                    "6a2d41f41b7e40755c8208c2"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Course",
+          "item": [
+            {
+              "name": "create",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"AWS Certified Solutions Architect\",\r\n  \"slug\": \"aws-certified-solutions-architect-aditya-001\",\r\n  \"description\": \"Learn AWS cloud architecture from beginner to advanced level.\",\r\n  \"thumbnail\": \"https://yourdomain.com/uploads/aws-course.jpg\",\r\n  \"previewVideo\": \"https://yourdomain.com/uploads/aws-preview.mp4\",\r\n\r\n  \"price\": 80,\r\n  \"oldPrice\": 100,\r\n  \"discountPercent\": 20,\r\n\r\n  \"duration\": \"3 Months\",\r\n  \"lessons\": 24,\r\n  \"level\": \"Beginner\",\r\n  \"language\": \"English\",\r\n\r\n  \"studentsCount\": 120,\r\n  \"rating\": 4.8,\r\n\r\n  \"instructor\": {\r\n    \"name\": \"Lina\",\r\n    \"image\": \"https://yourdomain.com/uploads/lina.jpg\",\r\n    \"designation\": \"AWS Instructor\",\r\n    \"bio\": \"AWS Certified Trainer\",\r\n    \"rating\": 4.9\r\n  },\r\n\r\n  \"includes\": {\r\n    \"title\": \"This Course Included\",\r\n    \"items\": [\r\n      {\r\n        \"title\": \"Money Back Guarantee\",\r\n        \"icon\": \"money\"\r\n      },\r\n      {\r\n        \"title\": \"Access on all devices\",\r\n        \"icon\": \"device\"\r\n      },\r\n      {\r\n        \"title\": \"Certification of completion\",\r\n        \"icon\": \"certificate\"\r\n      },\r\n      {\r\n        \"title\": \"32 Modules\",\r\n        \"icon\": \"modules\"\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"reviews\": [\r\n    {\r\n      \"userName\": \"John\",\r\n      \"userImage\": \"https://yourdomain.com/uploads/user1.jpg\",\r\n      \"rating\": 5,\r\n      \"comment\": \"Amazing Course\"\r\n    },\r\n    {\r\n      \"userName\": \"Aditya\",\r\n      \"userImage\": \"https://yourdomain.com/uploads/user2.jpg\",\r\n      \"rating\": 4.5,\r\n      \"comment\": \"Amazing Course WebDev\"\r\n    }\r\n  ],\r\n\r\n  \"marketingArticles\": [\r\n    {\r\n      \"image\": \"https://yourdomain.com/uploads/article1.jpg\",\r\n      \"category\": \"Design\",\r\n      \"duration\": \"3 Month\",\r\n      \"title\": \"AWS Certified Solutions Architect\",\r\n      \"description\": \"Learn AWS cloud architecture\",\r\n      \"authorName\": \"Lina\",\r\n      \"authorImage\": \"https://yourdomain.com/uploads/lina.jpg\",\r\n      \"oldPrice\": 100,\r\n      \"price\": 80\r\n    },\r\n    {\r\n      \"image\": \"https://yourdomain.com/uploads/article2.jpg\",\r\n      \"category\": \"Development\",\r\n      \"duration\": \"2 Month\",\r\n      \"title\": \"AWS Advanced Training\",\r\n      \"description\": \"Advanced AWS concepts and deployment\",\r\n      \"authorName\": \"Lina\",\r\n      \"authorImage\": \"https://yourdomain.com/uploads/lina.jpg\",\r\n      \"oldPrice\": 150,\r\n      \"price\": 120\r\n    },\r\n    {\r\n      \"image\": \"https://yourdomain.com/uploads/article3.jpg\",\r\n      \"category\": \"Cloud\",\r\n      \"duration\": \"1 Month\",\r\n      \"title\": \"AWS Security Fundamentals\",\r\n      \"description\": \"Learn AWS security best practices\",\r\n      \"authorName\": \"Lina\",\r\n      \"authorImage\": \"https://yourdomain.com/uploads/lina.jpg\",\r\n      \"oldPrice\": 120,\r\n      \"price\": 90\r\n    }\r\n  ],\r\n\r\n  \"classroomSection\": {\r\n    \"title\": \"Everything you can do in a physical classroom, you can do with TOTC\",\r\n    \"description\": \"School management software helps manage classrooms and online learning.\",\r\n    \"image\": \"https://yourdomain.com/uploads/classroom.jpg\",\r\n    \"videoUrl\": \"https://youtube.com/watch?v=123456\",\r\n    \"learnMoreLink\": \"https://yourdomain.com/learn-more\"\r\n  },\r\n\r\n  \"educationOffers\": [\r\n    {\r\n      \"discount\": 50,\r\n      \"title\": \"FOR INSTRUCTORS\",\r\n      \"description\": \"TOTC helps traditional and online schools manage scheduling.\",\r\n      \"image\": \"https://yourdomain.com/uploads/offer1.jpg\"\r\n    },\r\n    {\r\n      \"discount\": 40,\r\n      \"title\": \"FOR STUDENTS\",\r\n      \"description\": \"Access online courses and certifications.\",\r\n      \"image\": \"https://yourdomain.com/uploads/offer2.jpg\"\r\n    }\r\n  ],\r\n\r\n  \"socialLinks\": {\r\n    \"facebook\": \"https://facebook.com/course\",\r\n    \"twitter\": \"https://twitter.com/course\",\r\n    \"linkedin\": \"https://linkedin.com/course\",\r\n    \"instagram\": \"https://instagram.com/course\"\r\n  }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/courses",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "courses"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetCourse",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/courses",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "courses"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UpdateCourse",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"price\": 120,\r\n  \"rating\": 5,\r\n  \"title\": \"AWS Certified Solutions Architect Pro\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/courses/6a30d22a95d0edd3f927e822",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "courses",
+                    "6a30d22a95d0edd3f927e822"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DeleteCourse",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/courses/6a30d63be416077c43eee1c7",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "courses",
+                    "6a30d63be416077c43eee1c7"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "LiteratureCourse",
+          "item": [
+            {
+              "name": "createcourse",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"courses\": [\r\n    {\r\n      \"image\": \"https://yourdomain.com/uploads/literature1.jpg\",\r\n      \"courseName\": \"Literature\",\r\n      \"title\": \"Introduction to Classical Literature\",\r\n      \"slug\": \"introduction-to-classical-literature\"\r\n    },\r\n    {\r\n      \"image\": \"https://yourdomain.com/uploads/literature2.jpg\",\r\n      \"courseName\": \"English Literature\",\r\n      \"title\": \"Modern English Literature\",\r\n      \"slug\": \"modern-english-literature\"\r\n    },\r\n    {\r\n      \"image\": \"https://yourdomain.com/uploads/literature3.jpg\",\r\n      \"courseName\": \"World Literature\",\r\n      \"title\": \"World Literature and Culture\",\r\n      \"slug\": \"world-literature-and-culture\"\r\n    }\r\n  ]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/literature-courses",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "literature-courses"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetCourse",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/literature-courses",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "literature-courses"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetById",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            },
+            {
+              "name": "UpdateCourse",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"Advanced English Literature\",\r\n  \"courseName\": \"English Literature\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/literature-courses/6a30f6f08fa181fc55f45dfb",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "literature-courses",
+                    "6a30f6f08fa181fc55f45dfb"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Web",
+      "item": [
+        {
+          "name": "Auth",
+          "item": [
+            {
+              "name": "Register",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"username\": \"john\",\r\n  \"email\": \"john@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/auth/register",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Login",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjhlYjc5YTFlMDQ4YmQ1ZDI2NzNlYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTA2NjYxNywiZXhwIjoxNzgxNjcxNDE3fQ.E4JNQG7h9usaqMchsmcGPQoAvkaRR1XYLK_4nUjQrAU",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"john@gmail.com\",\r\n  \"password\": \"Aditya@123\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/auth/login",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "ForgotPasword",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/auth/forgot-password",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "auth",
+                    "forgot-password"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "resetpassword",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"password\": \"Aditya@123\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/auth/reset-password/33357284f683bf3074b294c9d421b259e4c860df",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "auth",
+                    "reset-password",
+                    "33357284f683bf3074b294c9d421b259e4c860df"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Profile",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjhlYjc5YTFlMDQ4YmQ1ZDI2NzNlYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTA2NzEwMCwiZXhwIjoxNzgxNjcxOTAwfQ.Uf50axcm7ckE1V4kQXjTW2ea7NTjpSlnkNNmmu6GNNU",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/auth/profile",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "auth",
+                    "profile"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "logout",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://192.168.1.13:5001/api/v1/web/auth/logout",
+                  "protocol": "http",
+                  "host": [
+                    "192",
+                    "168",
+                    "1",
+                    "13"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "auth",
+                    "logout"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetAllUser",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjhlYjc5YTFlMDQ4YmQ1ZDI2NzNlYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTMzMjUzOSwiZXhwIjoxNzgxOTM3MzM5fQ.6EITwMypaOxLtLes6LP_Vv189EiRcwnMM7rtiIkEtSg",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/auth/users",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "auth",
+                    "users"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "ProfileUpdate",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjhlYjc5YTFlMDQ4YmQ1ZDI2NzNlYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTA2NzEwMCwiZXhwIjoxNzgxNjcxOTAwfQ.Uf50axcm7ckE1V4kQXjTW2ea7NTjpSlnkNNmmu6GNNU",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \r\n  \"username\": \"john aditya\",\r\n  \"email\": \"john@gmail.com\",\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/auth/profile",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "auth",
+                    "profile"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Landing page",
+          "item": [
+            {
+              "name": "LendingPage",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjhlYjc5YTFlMDQ4YmQ1ZDI2NzNlYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTA2NzEwMCwiZXhwIjoxNzgxNjcxOTAwfQ.Uf50axcm7ckE1V4kQXjTW2ea7NTjpSlnkNNmmu6GNNU",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/landing",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "landing"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Blog",
+          "item": [
+            {
+              "name": "GetBlog",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/blogs",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "blogs"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetBlogById",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/blogs/6a2ce1f772b9f4a2b66bb4e5",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "blogs",
+                    "6a2ce1f772b9f4a2b66bb4e5"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "MemberShip",
+          "item": [
+            {
+              "name": "GetAll",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/memberships",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "memberships"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Course",
+          "item": [
+            {
+              "name": "GetCourse",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/courses",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "courses"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Footer",
+          "item": [
+            {
+              "name": "FooterCreate",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"test@gmail.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/newsletter/subscribe",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "newsletter",
+                    "subscribe"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Literature",
+          "item": [
+            {
+              "name": "LiteratureCourseGet",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjhlYjc5YTFlMDQ4YmQ1ZDI2NzNlYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTA2NzEwMCwiZXhwIjoxNzgxNjcxOTAwfQ.Uf50axcm7ckE1V4kQXjTW2ea7NTjpSlnkNNmmu6GNNU",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \r\n  \"username\": \"john aditya\",\r\n  \"email\": \"john@gmail.com\",\r\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/literature-courses",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "literature-courses"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetBYID",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
