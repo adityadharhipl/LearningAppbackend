@@ -1,24 +1,15 @@
 const express = require("express");
 const cors = require("cors");
-
 const app = express();
 
-/* =====================================================
-   Middleware
-===================================================== */
 app.use(express.json());
 app.use(cors());
 
-/* =====================================================
-   Health Check
-===================================================== */
 app.get("/", (req, res) => {
   res.send("API Running");
 });
 
-/* =====================================================
-   Admin Routes
-===================================================== */
+
 
 // Auth
 const adminAuthRoutes = require("./admin/auth/auth.routes");
@@ -52,9 +43,7 @@ app.use(
   adminLiteratureRoutes
 );
 
-/* =====================================================
-   Website Routes
-===================================================== */
+
 
 // Auth
 const webAuthRoutes = require("./web/auth/auth.routes");
@@ -80,9 +69,7 @@ app.use(
 );
 
 
-/* =====================================================
-   Modular Routes
-===================================================== */
+
 
 // Centralized Admin Router
 const adminRoutes = require("./routes/admin.routes");
@@ -94,9 +81,6 @@ const webRoutes = require("./routes/web.routes");
 app.use("/api/v1/web", webRoutes);
 
 
-/* =====================================================
-   Export App
-===================================================== */
 module.exports = app;
 
 

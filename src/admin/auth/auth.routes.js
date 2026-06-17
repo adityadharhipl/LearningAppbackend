@@ -2,22 +2,18 @@ const router = require("express").Router();
 const { login, profile ,getUsers,forgotPassword ,resetPassword } = require("./auth.controller");
 const adminAuth = require("../../middleware/auth.middleware");
 
-router.get("/test", (req, res) => {
-  res.json({
-    success: true,
-    message: "Admin Route Working"
-  });
-});
+// router.get("/test", (req, res) => {
+//   res.json({
+//     success: true,
+//     message: "Admin Route Working"
+//   });
+// });
 
 router.post("/login", login);
 router.get("/profile", adminAuth, profile);
 router.get("/allusers", adminAuth, getUsers);
 router.post("/forgot-password", forgotPassword);
-
-router.post(
-  "/reset-password/:token",
-  resetPassword
-);
+router.post("/reset-password/:token", resetPassword);
 
 router.get("/test-mail", async (req, res) => {
   try {

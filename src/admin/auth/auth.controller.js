@@ -55,6 +55,8 @@ exports.login = async (req, res) => {
   }
 };
 
+
+
 // Admin Profile
 exports.profile = async (req, res) => {
   const adminData = req.admin.toObject ? req.admin.toObject() : req.admin;
@@ -63,7 +65,7 @@ exports.profile = async (req, res) => {
     success: true,
     data: adminData,
   });
-};
+};  
 
 // Get All Admins
 exports.getUsers = async (req, res) => {
