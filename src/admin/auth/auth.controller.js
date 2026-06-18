@@ -4,7 +4,7 @@ const Admin = require("./auth.model");
 const generateAdminToken = require("../../utils/generateAdminToken");
 const bcrypt = require("bcryptjs");
 
-// Admin Login
+// Admin Login!!
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -55,9 +55,7 @@ exports.login = async (req, res) => {
   }
 };
 
-
-
-// Admin Profile
+//ADMIN PROFILE 
 exports.profile = async (req, res) => {
   const adminData = req.admin.toObject ? req.admin.toObject() : req.admin;
   delete adminData.password;
@@ -66,8 +64,7 @@ exports.profile = async (req, res) => {
     data: adminData,
   });
 };  
-
-// Get All Admins
+// Get All Admins!!
 exports.getUsers = async (req, res) => {
   try {
     const users = await Admin.find({})
@@ -87,7 +84,7 @@ exports.getUsers = async (req, res) => {
     });
   }
 };
-
+// PASSWORD FORGOT!!
 exports.forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
@@ -156,7 +153,7 @@ exports.forgotPassword = async (req, res) => {
     });
   }
 };
-
+// RESET PASSWORD!!
 exports.resetPassword = async (req, res) => {
   try {
     const { token } = req.params;

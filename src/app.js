@@ -36,7 +36,14 @@ const adminLiteratureRoutes = require(
   "./admin/LiteratureCourse/LiteratureCourse.route"
 );
 
+const courseLandingPageRoutes = require(
+  "./admin/courseLandingPage/courseLandingPage.routes"
+);
 
+app.use(
+  "/api/v1/admin/course-landing-page",
+  courseLandingPageRoutes
+);
 
 app.use(
   "/api/v1/admin/literature-courses",
@@ -56,6 +63,16 @@ app.use("/api/v1/web/landing", webLandingRoutes);
 // Courses
 const webCourseRoutes = require("./web/course/course.routes");
 app.use("/api/v1/web/courses", webCourseRoutes);
+
+// Course Landing Page Web
+const webCourseLandingPageRoutes = require(
+  "./web/landingCourse/courseLandingPage.routes"
+);
+
+app.use(
+  "/api/v1/web/course-landing-page",
+  webCourseLandingPageRoutes
+);
 
 const newsletterRoutes = require("./web/newsletter/newsletter.routes");
 

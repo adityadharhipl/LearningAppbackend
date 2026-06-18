@@ -1,9 +1,7 @@
 // Auth Middleware (Admin JWT Verification)
-// Verifies admin JWT token from Authorization header
-
 const jwt = require("jsonwebtoken");
 const Admin = require("../admin/auth/auth.model");
-
+// Verifies admin JWT token from Authorization header
 module.exports = async (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
