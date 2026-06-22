@@ -1,0 +1,185 @@
+{
+  "info": {
+    "name": "Literature Course - Detail Page APIs",
+    "description": "All endpoints for Literature Course with Detail Page support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5001/api/v1"
+    }
+  ],
+  "item": [
+    {
+      "name": "ADMIN APIs",
+      "item": [
+        {
+          "name": "Create Literature Course (with Detail Page Data)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/admin/literature-courses",
+              "host": ["{{baseUrl}}"],
+              "path": ["admin", "literature-courses"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"courses\": [\n    {\n      \"courseId\": \"PUT_YOUR_COURSE_OBJECT_ID_HERE\",\n      \"image\": \"https://example.com/images/react-course-card.jpg\",\n      \"courseName\": \"React Development\",\n      \"title\": \"Complete React Developer Course 2025\",\n      \"slug\": \"complete-react-developer-course-2025\",\n\n      \"bannerImage\": \"https://example.com/images/react-banner.jpg\",\n      \"category\": \"Web Development\",\n      \"price\": 499,\n      \"oldPrice\": 1999,\n      \"duration\": \"24 hours\",\n      \"lessonCount\": 120,\n      \"studentCount\": 5400,\n      \"rating\": 4.8,\n      \"reviewCount\": 320,\n      \"level\": \"Intermediate\",\n      \"language\": \"English\",\n      \"lastUpdated\": \"2025-06-15T00:00:00.000Z\",\n\n      \"overview\": \"Master React.js from scratch. Build real-world projects with hooks, context API, Redux, and Next.js.\",\n      \"description\": \"This comprehensive React course covers everything from the basics of JSX and components to advanced patterns like custom hooks, performance optimization, and server-side rendering with Next.js. You will build 5 real-world projects.\",\n\n      \"whatYouWillLearn\": [\n        \"Build powerful, fast, user-friendly and reactive web apps\",\n        \"Apply for high-paid jobs or work as a freelancer\",\n        \"Understand the theory behind React and its core concepts\",\n        \"Learn React Hooks & React Components\",\n        \"Manage complex state efficiently with Redux & Context API\",\n        \"Build fullstack apps with Next.js\"\n      ],\n\n      \"curriculum\": [\n        {\n          \"sectionTitle\": \"Getting Started\",\n          \"lessons\": [\n            {\n              \"title\": \"Welcome & Course Overview\",\n              \"duration\": \"5:30\",\n              \"isPreview\": true\n            },\n            {\n              \"title\": \"What is React?\",\n              \"duration\": \"12:00\",\n              \"isPreview\": true\n            },\n            {\n              \"title\": \"Setting Up Development Environment\",\n              \"duration\": \"8:45\",\n              \"isPreview\": false\n            }\n          ]\n        },\n        {\n          \"sectionTitle\": \"React Fundamentals\",\n          \"lessons\": [\n            {\n              \"title\": \"JSX In Detail\",\n              \"duration\": \"15:00\",\n              \"isPreview\": false\n            },\n            {\n              \"title\": \"Components & Props\",\n              \"duration\": \"20:00\",\n              \"isPreview\": false\n            },\n            {\n              \"title\": \"State & Lifecycle\",\n              \"duration\": \"18:30\",\n              \"isPreview\": false\n            }\n          ]\n        },\n        {\n          \"sectionTitle\": \"Advanced React Patterns\",\n          \"lessons\": [\n            {\n              \"title\": \"Custom Hooks\",\n              \"duration\": \"22:00\",\n              \"isPreview\": false\n            },\n            {\n              \"title\": \"Context API & useReducer\",\n              \"duration\": \"25:00\",\n              \"isPreview\": false\n            },\n            {\n              \"title\": \"Performance Optimization\",\n              \"duration\": \"19:00\",\n              \"isPreview\": false\n            }\n          ]\n        }\n      ],\n\n      \"instructor\": {\n        \"name\": \"Aditya Sharma\",\n        \"image\": \"https://example.com/images/instructor-aditya.jpg\",\n        \"designation\": \"Senior Full Stack Developer\",\n        \"bio\": \"Aditya is a senior developer with 8+ years of experience in React, Node.js, and cloud technologies. He has taught over 50,000 students worldwide.\",\n        \"rating\": 4.9,\n        \"reviewCount\": 1200,\n        \"studentCount\": 50000,\n        \"courseCount\": 12\n      },\n\n      \"courseIncludes\": [\n        {\n          \"icon\": \"video\",\n          \"label\": \"Video Lectures\",\n          \"value\": \"24 hours on-demand video\"\n        },\n        {\n          \"icon\": \"file\",\n          \"label\": \"Resources\",\n          \"value\": \"15 downloadable resources\"\n        },\n        {\n          \"icon\": \"code\",\n          \"label\": \"Coding Exercises\",\n          \"value\": \"30 coding exercises\"\n        },\n        {\n          \"icon\": \"infinity\",\n          \"label\": \"Access\",\n          \"value\": \"Full lifetime access\"\n        },\n        {\n          \"icon\": \"mobile\",\n          \"label\": \"Mobile\",\n          \"value\": \"Access on mobile and TV\"\n        },\n        {\n          \"icon\": \"certificate\",\n          \"label\": \"Certificate\",\n          \"value\": \"Certificate of completion\"\n        }\n      ],\n\n      \"faq\": [\n        {\n          \"question\": \"Do I need prior programming experience?\",\n          \"answer\": \"Basic JavaScript knowledge is recommended. If you know variables, functions, and objects in JS, you are good to go!\"\n        },\n        {\n          \"question\": \"Is this course updated for React 19?\",\n          \"answer\": \"Yes! This course is fully updated with the latest React 19 features, including new hooks and server components.\"\n        },\n        {\n          \"question\": \"Will I get a certificate?\",\n          \"answer\": \"Yes, upon completing the course you will receive a certificate of completion that you can share on LinkedIn.\"\n        },\n        {\n          \"question\": \"What if I get stuck?\",\n          \"answer\": \"You can ask questions in the Q&A section and our team will respond within 24 hours.\"\n        }\n      ],\n\n      \"relatedCourses\": [\n        {\n          \"image\": \"https://example.com/images/nodejs-course.jpg\",\n          \"title\": \"Node.js Complete Guide\",\n          \"authorName\": \"Rahul Verma\",\n          \"price\": 399,\n          \"oldPrice\": 1499,\n          \"rating\": 4.7,\n          \"reviewCount\": 210\n        },\n        {\n          \"image\": \"https://example.com/images/nextjs-course.jpg\",\n          \"title\": \"Next.js Full Stack Masterclass\",\n          \"authorName\": \"Aditya Sharma\",\n          \"price\": 599,\n          \"oldPrice\": 2499,\n          \"rating\": 4.9,\n          \"reviewCount\": 180\n        }\n      ],\n\n      \"marketingBanner\": {\n        \"title\": \"Join our premium learning community\",\n        \"description\": \"Get access to exclusive content, live sessions, and mentorship from industry experts.\",\n        \"buttonText\": \"Join Now\",\n        \"buttonLink\": \"/membership\",\n        \"image\": \"https://example.com/images/marketing-banner.jpg\"\n      }\n    }\n  ]\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Literature Courses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/admin/literature-courses",
+              "host": ["{{baseUrl}}"],
+              "path": ["admin", "literature-courses"]
+            }
+          }
+        },
+        {
+          "name": "Get Single Literature Course By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/admin/literature-courses/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["admin", "literature-courses", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "PUT_COURSE_SUB_DOC_ID_HERE",
+                  "description": "The _id of the course inside courses array"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Literature Course (Parent Doc)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/admin/literature-courses/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["admin", "literature-courses", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "PUT_PARENT_DOC_ID_HERE",
+                  "description": "The _id of the parent LiteratureCourse document"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"courses\": [\n    {\n      \"courseId\": \"PUT_YOUR_COURSE_OBJECT_ID_HERE\",\n      \"image\": \"https://example.com/images/updated-course.jpg\",\n      \"courseName\": \"Updated React Course\",\n      \"title\": \"React Developer Course - Updated 2025\",\n      \"slug\": \"react-developer-course-updated-2025\",\n      \"bannerImage\": \"https://example.com/images/updated-banner.jpg\",\n      \"category\": \"Web Development\",\n      \"price\": 599,\n      \"oldPrice\": 2499,\n      \"duration\": \"30 hours\",\n      \"lessonCount\": 150,\n      \"studentCount\": 7000,\n      \"rating\": 4.9,\n      \"reviewCount\": 450,\n      \"level\": \"Advanced\",\n      \"language\": \"English\",\n      \"overview\": \"Updated overview for the course\",\n      \"description\": \"Updated full description\",\n      \"whatYouWillLearn\": [\n        \"Master React 19 new features\",\n        \"Build production-ready apps\"\n      ],\n      \"curriculum\": [\n        {\n          \"sectionTitle\": \"Introduction\",\n          \"lessons\": [\n            {\n              \"title\": \"Welcome\",\n              \"duration\": \"3:00\",\n              \"isPreview\": true\n            }\n          ]\n        }\n      ],\n      \"instructor\": {\n        \"name\": \"Aditya Sharma\",\n        \"image\": \"https://example.com/images/aditya.jpg\",\n        \"designation\": \"Lead Developer\",\n        \"bio\": \"8+ years experience\",\n        \"rating\": 4.9,\n        \"reviewCount\": 1200,\n        \"studentCount\": 50000,\n        \"courseCount\": 12\n      },\n      \"courseIncludes\": [\n        {\n          \"icon\": \"video\",\n          \"label\": \"Video\",\n          \"value\": \"30 hours\"\n        }\n      ],\n      \"faq\": [\n        {\n          \"question\": \"Is it beginner friendly?\",\n          \"answer\": \"Advanced level course\"\n        }\n      ]\n    }\n  ]\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Literature Course",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/admin/literature-courses/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["admin", "literature-courses", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "PUT_PARENT_DOC_ID_HERE",
+                  "description": "The _id of the parent LiteratureCourse document"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "WEB APIs",
+      "item": [
+        {
+          "name": "Get Course Landing Page (with detailLinks)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/web/course-landing-page",
+              "host": ["{{baseUrl}}"],
+              "path": ["web", "course-landing-page"]
+            }
+          }
+        },
+        {
+          "name": "Get Course Landing Page By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/web/course-landing-page/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["web", "course-landing-page", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "PUT_LANDING_PAGE_ID_HERE"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Literature Courses (Web)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/web/literature-courses",
+              "host": ["{{baseUrl}}"],
+              "path": ["web", "literature-courses"]
+            }
+          }
+        },
+        {
+          "name": "Get Literature Course Detail By ID (Web)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/web/literature-courses/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["web", "literature-courses", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "PUT_COURSE_SUB_DOC_ID_HERE",
+                  "description": "The _id of the course from courses array (get this from course-landing-page response detailLink)"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

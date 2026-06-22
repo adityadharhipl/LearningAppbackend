@@ -23,16 +23,64 @@ exports.createCourseLandingPage = async (req, res) => {
 // Get Latest Landing Page
 exports.getCourseLandingPage = async (req, res) => {
   try {
-    const page = await CourseLandingPage.findOne().sort({
-      createdAt: -1,
-    });
+    const data = await CourseLandingPage.findOne().lean();
 
-    res.status(200).json({
+    console.log("LANDING PAGE ID:", data?._id);
+
+    return res.status(200).json({
       success: true,
-      data: page,
+      data,
     });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};;
+
+
+exports.getCourseLandingPageById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const landingDoc = await CourseLandingPage.findOne().lean();
+
+    if (!landingDoc) {
+      return res.status(404).json({
+        success: false,
+        message: "Landing page not found",
+      });
+    }
+
+    for (const key of Object.keys(landingDoc)) {
+      const section = landingDoc[key];
+
+      if (
+        section &&
+        typeof section === "object" &&
+        Array.isArray(section.cards)
+      ) {
+        const card = section.cards.find(
+          (item) => String(item.courseId) === String(id)
+        );
+
+        if (card) {
+          return res.status(200).json({
+            success: true,
+            data: card,
+          });
+        }
+      }
+    }
+
+    return res.status(404).json({
+      success: false,
+      message: "Course not found",
+    });
+
+  } catch (error) {
+    return res.status(500).json({
       success: false,
       message: error.message,
     });

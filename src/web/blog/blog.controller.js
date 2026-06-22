@@ -28,7 +28,7 @@ await Promise.all(
   })
 );
 
-    // 🔥 RELATED BLOGS (LATEST)
+    //  RELATED BLOGS (LATEST)
     const totalCount = await Blog.countDocuments();
 
     const relatedBlogs = await Blog.find()
@@ -36,7 +36,7 @@ await Promise.all(
       .skip(skip)
       .limit(limit);
 
-    // 🔥 MARKETING ARTICLES
+    //  MARKETING ARTICLES
     const marketingArticles = await Blog.find({ isMarketing: true })
       .sort({ createdAt: -1 })
       .limit(6);

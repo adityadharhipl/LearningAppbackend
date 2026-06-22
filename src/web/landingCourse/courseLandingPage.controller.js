@@ -2,14 +2,35 @@ const CourseLandingPage = require(
   "../../admin/courseLandingPage/courseLandingPage.model"
 );
 
+function addDetailLinks(data) {
+  for (const key of Object.keys(data)) {
+    const section = data[key];
 
-// WEB GET ALL DATA
+    if (
+      section &&
+      typeof section === "object" &&
+      Array.isArray(section.cards)
+    ) {
+      section.cards = section.cards.map((card) => ({
+        ...card,
+        detailLink: card.courseId
+          ? `/api/v1/web/literature-courses/${card.courseId}`
+          : null,
+      }));
+    }
+  }
+
+  return data;
+}
+
+/**
+ * GET Landing Page
+ */
 exports.getCourseLandingPage = async (req, res) => {
   try {
-    const data = await CourseLandingPage.findOne();
-
-    console.log("========== DB DATA ==========");
-    console.log(JSON.stringify(data, null, 2));
+    const data = await CourseLandingPage.findOne()
+      .sort({ createdAt: -1 })
+      .lean();
 
     if (!data) {
       return res.status(404).json({
@@ -18,56 +39,72 @@ exports.getCourseLandingPage = async (req, res) => {
       });
     }
 
-    res.status(200).json({
+    addDetailLinks(data);
+
+    return res.status(200).json({
       success: true,
       data,
     });
   } catch (error) {
     console.error(error);
 
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: error.message,
     });
   }
 };
 
+/**
+ * GET Single Card By courseId
+ */
+exports.getCourseLandingPageById = async (req, res) => {
+  try {
+    const { id } = req.params;
 
+    const landingPage = await CourseLandingPage.findOne().lean();
 
-// WEB GET BY ID
+    if (!landingPage) {
+      return res.status(404).json({
+        success: false,
+        message: "Landing page not found",
+      });
+    }
 
-exports.getCourseLandingPageById = async(req,res)=>{
+    for (const key of Object.keys(landingPage)) {
+      const section = landingPage[key];
 
-try{
+      if (
+        section &&
+        typeof section === "object" &&
+        Array.isArray(section.cards)
+      ) {
+        const card = section.cards.find(
+          (item) => String(item.courseId) === String(id)
+        );
 
-const data = await CourseLandingPage.findById(
-  req.params.id
-);
+        if (card) {
+          return res.status(200).json({
+            success: true,
+            data: {
+              ...card,
+              detailLink: `/api/v1/web/literature-courses/${card.courseId}`,
+            },
+          });
+        }
+      }
+    }
 
+    return res.status(404).json({
+      success: false,
+      message: "Course not found",
+    });
+  } catch (error) {
+    console.error(error);
 
-if(!data){
-
-return res.status(404).json({
- success:false,
- message:"Course landing page not found"
-});
-
-}
-
-
-res.status(200).json({
- success:true,
- data
-});
-
-
-}catch(error){
-
-res.status(500).json({
- success:false,
- message:error.message
-});
-
-}
-
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
 };

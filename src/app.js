@@ -69,6 +69,15 @@ const webCourseLandingPageRoutes = require(
   "./web/landingCourse/courseLandingPage.routes"
 );
 
+const courseMarketplaceRoutes = require(
+  "./admin/courseMarketplace/courseMarketplace.routes"
+);
+
+app.use(
+  "/api/v1/admin/course-marketplace",
+  courseMarketplaceRoutes
+);
+
 app.use(
   "/api/v1/web/course-landing-page",
   webCourseLandingPageRoutes
@@ -86,7 +95,14 @@ app.use(
 );
 
 
+const webCourseMarketplaceRoutes = require(
+  "./web/courseMarketplace/courseMarketplace.routes"
+);
 
+app.use(
+  "/api/v1/web/course-marketplace",
+  webCourseMarketplaceRoutes
+);
 
 // Centralized Admin Router
 const adminRoutes = require("./routes/admin.routes");

@@ -11,7 +11,7 @@ exports.createCourse = async (req, res) => {
 
     res.status(201).json({
       success: true,
-      course: course,
+      data: course,
     });
   } catch (error) {
     res.status(500).json({
@@ -46,12 +46,49 @@ exports.getCourses = async (req, res) => {
 };
 
 /**
- * Get Single
+ * Get Single Course By Course _id
  */
 exports.getCourseById = async (req, res) => {
   try {
-    const course = await LiteratureCourse.findById(
-      req.params.id
+    const doc = await LiteratureCourse.findOne({
+      "courses._id": req.params.id,
+    });
+
+    if (!doc) {
+      return res.status(404).json({
+        success: false,
+        message: "Course not found",
+      });
+    }
+
+    const course = doc.courses.id(req.params.id);
+
+    res.status(200).json({
+      success: true,
+      data: course,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+/**
+ * Update Parent Document
+ */
+exports.updateCourse = async (req, res) => {
+  try {
+    const course = await LiteratureCourse.findByIdAndUpdate(
+      req.params.id,
+      {
+        courses: req.body.courses,
+      },
+      {
+        new: true,
+        runValidators: true,
+      }
     );
 
     if (!course) {
@@ -74,50 +111,13 @@ exports.getCourseById = async (req, res) => {
 };
 
 /**
- * Update
- */
-exports.updateCourse = async (req, res) => {
-  try {
-    const course =
-      await LiteratureCourse.findByIdAndUpdate(
-        req.params.id,
-        {
-          courses: req.body.courses,
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-
-    if (!course) {
-      return res.status(404).json({
-        success: false,
-        message: "Course not found",
-      });
-    }
-
-    res.status(200).json({
-      success: true,
-      data: course,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};
-
-/**
- * Delete
+ * Delete Parent Document
  */
 exports.deleteCourse = async (req, res) => {
   try {
-    const course =
-      await LiteratureCourse.findByIdAndDelete(
-        req.params.id
-      );
+    const course = await LiteratureCourse.findByIdAndDelete(
+      req.params.id
+    );
 
     if (!course) {
       return res.status(404).json({
