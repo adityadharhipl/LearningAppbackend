@@ -208,14 +208,14 @@ exports.searchCourses = async (req, res) => {
               subject.toLowerCase()
         );
 
-        result.recommendedForYou = (
-          data.recommendedForYou?.cards || []
-        ).filter(
-          (item) =>
-            item.category &&
-            item.category.toLowerCase() ===
-              subject.toLowerCase()
-        );
+        // result.recommendedForYou = (
+        //   data.recommendedForYou?.cards || []
+        // ).filter(
+        //   (item) =>
+        //     item.category &&
+        //     item.category.toLowerCase() ===
+        //       subject.toLowerCase()
+        // );
       }
 
       if (partner) {

@@ -51,7 +51,24 @@ app.use(
 );
 
 
+app.use(
+    "/api/v1/admin/book-store-course",
+    require(
+        "./admin/bookStoreCourse/bookStoreCourse.routes"
+    )
+);
 
+app.use(
+  "/api/v1/meeting",
+  require("./web/MeetingModel/meeting.routes")
+);
+
+app.use(
+    "/api/v1/web/book-store-course",
+    require(
+        "./web/bookStoreCourse/bookStoreCourse.routes"
+    )
+);
 // Auth
 const webAuthRoutes = require("./web/auth/auth.routes");
 app.use("/api/v1/web/auth", webAuthRoutes);
