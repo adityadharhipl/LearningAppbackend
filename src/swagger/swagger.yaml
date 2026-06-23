@@ -1,0 +1,629 @@
+openapi: 3.1.0
+
+info:
+  title: Learning Platform API
+  version: 1.0.0
+  description: API Documentation for Admin Panel
+
+servers:
+  - url: http://localhost:5001
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+tags:
+  - name: Admin Auth
+  - name: Blog
+  - name: Profile
+  - name: Member
+  - name: Course
+  - name: LiteratureCourse
+  - name: CourseLanding
+  - name: Course-Marketplace
+  - name: Book-Store-Course
+  - name: Admin Landing
+
+paths:
+  # --- ADMIN AUTH ---
+  /api/v1/admin/auth/login:
+    post:
+      tags:
+        - Admin Auth
+      summary: Admin Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: admin@elearning.com
+                password:
+                  type: string
+                  example: Admin@123
+      responses:
+        '200':
+          description: Login Success
+
+  /api/v1/admin/auth/forgot-password:
+    post:
+      tags:
+        - Admin Auth
+      summary: Forgot Password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+      responses:
+        '200':
+          description: Reset link sent
+
+  /api/v1/admin/auth/reset-password/{token}:
+    post:
+      tags:
+        - Admin Auth
+      summary: Reset Password
+      parameters:
+        - in: path
+          name: token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Password reset success
+
+  # --- BLOG SECTION ---
+  /api/v1/admin/blogs/add:
+     post:
+      tags:
+        - Blog
+      summary: Create Blog
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                slug:
+                  type: string
+                description:
+                  type: string
+                content:
+                  type: string
+                image:
+                  type: string
+                category:
+                  type: string
+                author:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    image:
+                      type: string
+                tags:
+                  type: array
+                  items:
+                    type: string
+                isFeatured:
+                  type: boolean
+                isMarketing:
+                  type: boolean
+                views:
+                  type: integer
+                readTime:
+                  type: string
+            example:
+              title: "Why Swift UI Should Be on the Radar of Every Mobile Developer"
+              slug: "swift-ui-mobile-developers"
+              description: "SwiftUI helps developers build modern iOS apps faster"
+              content: "Full content here..."
+              image: "https://example.com/image.jpg"
+              category: "Mobile Development"
+              author:
+                name: "John Doe"
+                image: "https://example.com/author.jpg"
+              tags: ["SwiftUI", "iOS", "Mobile"]
+              isFeatured: true
+              isMarketing: true
+              views: 1200
+              readTime: "5 min read"
+      responses:
+        '201':
+          description: Blog Created Successfully
+  /api/v1/admin/blogs:
+    get:
+      tags:
+        - Blog
+      summary: Get All Blogs
+      responses:
+        '200':
+          description: Success
+
+  /api/v1/admin/blogs/{id}:
+    get:
+      tags:
+        - Blog
+      summary: Get Blog By Id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+
+  /api/v1/admin/blogs/edit/{id}:
+    put:
+      tags:
+        - Blog
+      summary: Update Blog
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Updated successfully
+
+  /api/v1/admin/blogs/delete/{id}:
+    delete:
+      tags:
+        - Blog
+      summary: Delete Blog
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deleted successfully
+
+  # --- PROFILE SECTION ---
+  /api/v1/admin/auth/profile:
+    get:
+      tags:
+        - Profile
+      summary: Get Logged In Admin Profile
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Success
+
+  /api/v1/admin/profile/{id}:
+    get:
+      tags:
+        - Profile
+      summary: Get Profile By Id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Profile
+      summary: Update Profile
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Updated successfully
+    delete:
+      tags:
+        - Profile
+      summary: Delete Profile
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deleted successfully
+
+  # --- MEMBERSHIP SECTION ---
+  /api/v1/admin/memberships/add:
+    post:
+      tags:
+        - Member
+      summary: Create Membership
+      security:
+        - bearerAuth: []
+      responses:
+        '201':
+          description: Created
+  /api/v1/admin/memberships:
+    get:
+      tags:
+        - Member
+      summary: Get All Memberships
+      responses:
+        '200':
+          description: Success
+  /api/v1/admin/memberships/{id}:
+    get:
+      tags:
+        - Member
+      summary: Get Membership By Id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /api/v1/admin/memberships/edit/{id}:
+    put:
+      tags:
+        - Member
+      summary: Update Membership
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /api/v1/admin/memberships/delete/{id}:
+    delete:
+      tags:
+        - Member
+      summary: Delete Membership
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+
+  # --- COURSE SECTION ---
+  /api/v1/admin/courses:
+    post:
+      tags:
+        - Course
+      summary: Create Course
+      responses:
+        '201':
+          description: Created
+    get:
+      tags:
+        - Course
+      summary: Get All Courses
+      responses:
+        '200':
+          description: Success
+  /api/v1/admin/courses/{id}:
+    get:
+      tags:
+        - Course
+      summary: Get Course By Id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Course
+      summary: Update Course
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Course
+      summary: Delete Course
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+
+  # --- LITERATURE COURSE SECTION ---
+  /api/v1/admin/literature-courses:
+    post:
+      tags:
+        - LiteratureCourse
+      summary: Create Literature Course
+      responses:
+        '201':
+          description: Created
+    get:
+      tags:
+        - LiteratureCourse
+      summary: Get All Literature Courses
+      responses:
+        '200':
+          description: Success
+  /api/v1/admin/literature-courses/{id}:
+    get:
+      tags:
+        - LiteratureCourse
+      summary: Get Literature Course By Id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    patch:
+      tags:
+        - LiteratureCourse
+      summary: Update Literature Course
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - LiteratureCourse
+      summary: Delete Literature Course
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+
+  # --- COURSE LANDING SECTION ---
+  /api/v1/admin/course-landing-page:
+    post:
+      tags:
+        - CourseLanding
+      summary: Create Course Landing Page
+      responses:
+        '201':
+          description: Created
+    get:
+      tags:
+        - CourseLanding
+      summary: Get All Course Landing Pages
+      responses:
+        '200':
+          description: Success
+  /api/v1/admin/course-landing-page/{id}:
+    get:
+      tags:
+        - CourseLanding
+      summary: Get Course Landing Page By Id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - CourseLanding
+      summary: Update Course Landing Page
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - CourseLanding
+      summary: Delete Course Landing Page
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+
+  # --- COURSE MARKETPLACE SECTION ---
+  /api/v1/admin/course-marketplace:
+    post:
+      tags:
+        - course-marketplace
+      summary: Create Course Marketplace
+      responses:
+        '201':
+          description: Created
+    get:
+      tags:
+        - course-marketplace
+      summary: Get All Course Marketplace
+      responses:
+        '200':
+          description: Success
+  /api/v1/admin/course-marketplace/{id}:
+    get:
+      tags:
+        - course-marketplace
+      summary: Get Course Marketplace By Id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - course-marketplace
+      summary: Update Course Marketplace
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - course-marketplace
+      summary: Delete Course Marketplace
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+
+  # --- BOOK STORE COURSE SECTION ---
+  /api/v1/admin/book-store-course:
+    post:
+      tags:
+        - Book-store-course
+      summary: Create Book Store Course
+      responses:
+        '201':
+          description: Created
+    get:
+      tags:
+        - Book-store-course
+      summary: Get All Book Store Courses
+      responses:
+        '200':
+          description: Success
+  /api/v1/admin/book-store-course/{id}:
+    get:
+      tags:
+        - Book-store-course
+      summary: Get Book Store Course By Id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Book-store-course
+      summary: Update Book Store Course
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Book-store-course
+      summary: Delete Book Store Course
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+
+  # --- ADMIN LANDING PAGE SECTION ---
+  /api/v1/admin/landing:
+    get:
+      tags:
+        - Admin Landing
+      summary: Get Landing Page
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - Admin Landing
+      summary: Create Landing Page
+      responses:
+        '201':
+          description: Created

@@ -1031,6 +1031,313 @@
               "response": []
             }
           ]
+        },
+        {
+          "name": "CourseLanding",
+          "item": [
+            {
+              "name": "createCourseL",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"welcomeBanner\": {\r\n    \"title\": \"Welcome back, ready for your next lesson?\",\r\n    \"subtitle\": \"Continue your learning journey\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"welcome-banner.jpg\",\r\n        \"category\": \"Development\",\r\n        \"duration\": \"6 Weeks\",\r\n        \"title\": \"React Complete Bootcamp\",\r\n        \"description\": \"Master React from beginner to advanced.\",\r\n        \"authorName\": \"John Doe\",\r\n        \"authorImage\": \"john.jpg\",\r\n        \"read_lession\": \"5\",\r\n        \"total_lessons\": \"7\"\r\n      }\r\n    ]\r\n  },\r\n  \"premiumReactStudy\": {\r\n    \"title\": \"Premium React Study For Your Next Level\",\r\n    \"subtitle\": \"Learn From Industry Experts\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"react.jpg\",\r\n        \"category\": \"Development\",\r\n        \"duration\": \"6 Weeks\",\r\n        \"title\": \"React Complete Bootcamp\",\r\n        \"description\": \"Master React from beginner to advanced.\",\r\n        \"authorName\": \"John Doe\",\r\n        \"authorImage\": \"john.jpg\",\r\n        \"price\": 49,\r\n        \"oldPrice\": 99\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"choiceFavouriteCourse\": {\r\n    \"title\": \"Choice Favourite Course From Top Category\",\r\n    \"subtitle\": \"Explore popular learning categories\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"web-development.jpg\",\r\n        \"category\": \"Development\",\r\n        \"duration\": \"8 Weeks\",\r\n        \"title\": \"Web Development Course\",\r\n        \"description\": \"Learn frontend and backend development.\",\r\n        \"authorName\": \"Alex Smith\",\r\n        \"authorImage\": \"alex.jpg\",\r\n        \"price\": 59,\r\n        \"oldPrice\": 120\r\n      },\r\n      {\r\n        \"image\": \"business.jpg\",\r\n        \"category\": \"Business\",\r\n        \"duration\": \"5 Weeks\",\r\n        \"title\": \"Business Strategy Masterclass\",\r\n        \"description\": \"Learn business growth techniques.\",\r\n        \"authorName\": \"Sarah Lee\",\r\n        \"authorImage\": \"sarah.jpg\",\r\n        \"price\": 39,\r\n        \"oldPrice\": 89\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"recommendedForYou\": {\r\n    \"title\": \"Recommended For You\",\r\n    \"subtitle\": \"Courses selected specially for you\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"javascript.jpg\",\r\n        \"category\": \"Programming\",\r\n        \"duration\": \"10 Weeks\",\r\n        \"title\": \"Advanced JavaScript\",\r\n        \"description\": \"Become a JavaScript expert.\",\r\n        \"authorName\": \"David Lee\",\r\n        \"authorImage\": \"david.jpg\",\r\n        \"price\": 69,\r\n        \"oldPrice\": 129\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"getChoiceOfYourCourse\": {\r\n    \"title\": \"Get Choice Of Your Course\",\r\n    \"subtitle\": \"Choose your favourite learning path\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"uiux.jpg\",\r\n        \"category\": \"Design\",\r\n        \"duration\": \"6 Weeks\",\r\n        \"title\": \"UI UX Design Course\",\r\n        \"description\": \"Create modern user interfaces.\",\r\n        \"authorName\": \"Emma Wilson\",\r\n        \"authorImage\": \"emma.jpg\",\r\n        \"price\": 45,\r\n        \"oldPrice\": 90\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"onlineCoachingLessons\": {\r\n    \"title\": \"Online Coaching Lessons For Remote Learning\",\r\n    \"subtitle\": \"Learn anytime from anywhere\",\r\n    \"description\": \"Interactive online coaching with professional mentors.\",\r\n    \"image\": \"online-learning.jpg\",\r\n    \"videoUrl\": \"online-video.mp4\",\r\n    \"buttonText\": \"Start Learning\",\r\n    \"buttonLink\": \"/learning\"\r\n  },\r\n\r\n  \"personalDevelopmentCourse\": {\r\n    \"title\": \"The Course In Personal Development\",\r\n    \"subtitle\": \"Improve your skills and personality\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"personal-growth.jpg\",\r\n        \"category\": \"Lifestyle\",\r\n        \"duration\": \"4 Weeks\",\r\n        \"title\": \"Personal Growth Masterclass\",\r\n        \"description\": \"Develop confidence and leadership skills.\",\r\n        \"authorName\": \"Michael Brown\",\r\n        \"authorImage\": \"michael.jpg\",\r\n        \"price\": 35,\r\n        \"oldPrice\": 75\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"studentsAreViewing\": {\r\n    \"title\": \"Students Are Viewing\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"mern.jpg\",\r\n        \"category\": \"Development\",\r\n        \"duration\": \"12 Weeks\",\r\n        \"title\": \"MERN Stack Development\",\r\n        \"description\": \"Build full stack applications.\",\r\n        \"authorName\": \"John Doe\",\r\n        \"authorImage\": \"john.jpg\",\r\n        \"price\": 79,\r\n        \"oldPrice\": 149\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"onlineCourseIncludes\": {\r\n    \"title\": \"Online Course Includes\",\r\n    \"items\": [\r\n      {\r\n        \"title\": \"Development\",\r\n        \"icon\": \"code.svg\",\r\n        \"description\": \"Programming and Web Development\"\r\n      },\r\n      {\r\n        \"title\": \"Business\",\r\n        \"icon\": \"business.svg\",\r\n        \"description\": \"Business and Marketing Courses\"\r\n      },\r\n      {\r\n        \"title\": \"Design\",\r\n        \"icon\": \"design.svg\",\r\n        \"description\": \"UI UX and Graphic Design\"\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"recentArticleForYou\": {\r\n    \"title\": \"Recent Article For You\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"article.jpg\",\r\n        \"category\": \"Technology\",\r\n        \"duration\": \"5 min\",\r\n        \"title\": \"Future Of Web Development\",\r\n        \"description\": \"Latest development trends.\",\r\n        \"authorName\": \"John Doe\",\r\n        \"authorImage\": \"john.jpg\"\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"bestDealsOfYourChoice\": {\r\n    \"title\": \"Best Deals Of Your Choice\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"deal.jpg\",\r\n        \"category\": \"Programming\",\r\n        \"duration\": \"8 Weeks\",\r\n        \"title\": \"Full Stack Course\",\r\n        \"description\": \"Become a professional developer.\",\r\n        \"authorName\": \"Sarah Lee\",\r\n        \"authorImage\": \"sarah.jpg\",\r\n        \"price\": 49,\r\n        \"oldPrice\": 99\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"statisticsBanner\": {\r\n    \"students\": 827,\r\n    \"courses\": 54,\r\n    \"instructors\": 20,\r\n    \"certificates\": 1500\r\n  },\r\n\r\n  \"featuredArticles\": {\r\n    \"title\": \"Featured Articles\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"featured.jpg\",\r\n        \"category\": \"Education\",\r\n        \"duration\": \"7 min\",\r\n        \"title\": \"How To Learn Online Effectively\",\r\n        \"description\": \"Improve your online learning experience.\",\r\n        \"authorName\": \"David Lee\",\r\n        \"authorImage\": \"david.jpg\"\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"latestCourses\": {\r\n    \"title\": \"Latest Courses\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"latest-course.jpg\",\r\n        \"category\": \"Cloud\",\r\n        \"duration\": \"10 Weeks\",\r\n        \"title\": \"AWS Cloud Course\",\r\n        \"description\": \"Learn cloud computing basics.\",\r\n        \"authorName\": \"Emma Wilson\",\r\n        \"authorImage\": \"emma.jpg\",\r\n        \"price\": 69,\r\n        \"oldPrice\": 139\r\n      }\r\n    ]\r\n  }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/course-landing-page",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "course-landing-page"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjhlYjc5YTFlMDQ4YmQ1ZDI2NzNlYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MTA2NzEwMCwiZXhwIjoxNzgxNjcxOTAwfQ.Uf50axcm7ckE1V4kQXjTW2ea7NTjpSlnkNNmmu6GNNU",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \r\n  \"username\": \"john aditya\",\r\n  \"email\": \"john@gmail.com\",\r\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/course-landing-page",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "course-landing-page"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetByid",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/course-landing-page/66a9f123abc4567890def106",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "course-landing-page",
+                    "66a9f123abc4567890def106"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/course-landing-page/6a339397fb4fc527e8a7b8ff",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "course-landing-page",
+                    "6a339397fb4fc527e8a7b8ff"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/course-landing-page/6a339397fb4fc527e8a7b8ff",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "course-landing-page",
+                    "6a339397fb4fc527e8a7b8ff"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "course-marketplace",
+          "item": [
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"heroSection\": {\r\n    \"bannerImage\": \"banner.jpg\",\r\n    \"searchPlaceholder\": \"Search your favourite course\",\r\n    \"subjects\": [\r\n      \"Design\",\r\n      \"Development\",\r\n      \"Business\"\r\n    ],\r\n    \"partners\": [\r\n      \"Google\",\r\n      \"Microsoft\",\r\n      \"Meta\"\r\n    ],\r\n    \"programs\": [\r\n      \"Certificate\",\r\n      \"Diploma\",\r\n      \"Degree\"\r\n    ],\r\n    \"languages\": [\r\n      \"English\",\r\n      \"Hindi\",\r\n      \"Arabic\"\r\n    ],\r\n    \"availability\": [\r\n      \"Full Time\",\r\n      \"Part Time\"\r\n    ],\r\n    \"learningTypes\": [\r\n      \"Online\",\r\n      \"Offline\",\r\n      \"Hybrid\"\r\n    ]\r\n  },\r\n  \"featuredCourses\": {\r\n    \"cards\": [\r\n      {\r\n        \"title\": \"AWS Certified Solutions Architect\"\r\n      }\r\n    ]\r\n  }\r\n,\r\n\r\n  \"learningBanner\": {\r\n    \"title\": \"Know about learning learning platform\",\r\n    \"description\": \"Free E-book, video & consultation. Top instructors from around world. Top courses from your team.\",\r\n    \"image\": \"learning-platform.jpg\",\r\n    \"buttonText\": \"Start learning now\",\r\n    \"buttonLink\": \"/courses\"\r\n  },\r\n\r\n  \"recommendedForYou\": {\r\n    \"title\": \"Recommended for you\",\r\n    \"cards\": [\r\n      {\r\n        \"courseId\": \"66a9f123abc4567890def105\",\r\n        \"image\": \"recommended-1.jpg\",\r\n        \"category\": \"Design\",\r\n        \"duration\": \"3 Month\",\r\n        \"title\": \"AWS Certified Solutions Architect\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\r\n        \"authorName\": \"Lina\",\r\n        \"authorImage\": \"lina.jpg\",\r\n        \"price\": 80,\r\n        \"oldPrice\": 100\r\n      },\r\n      {\r\n        \"courseId\": \"66a9f123abc4567890def106\",\r\n        \"image\": \"recommended-2.jpg\",\r\n        \"category\": \"Design\",\r\n        \"duration\": \"3 Month\",\r\n        \"title\": \"AWS Certified Solutions Architect\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\r\n        \"authorName\": \"Lina\",\r\n        \"authorImage\": \"lina.jpg\",\r\n        \"price\": 80,\r\n        \"oldPrice\": 100\r\n      },\r\n      {\r\n        \"courseId\": \"66a9f123abc4567890def107\",\r\n        \"image\": \"recommended-3.jpg\",\r\n        \"category\": \"Design\",\r\n        \"duration\": \"3 Month\",\r\n        \"title\": \"AWS Certified Solutions Architect\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\r\n        \"authorName\": \"Lina\",\r\n        \"authorImage\": \"lina.jpg\",\r\n        \"price\": 80,\r\n        \"oldPrice\": 100\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"classesTaughtByCreators\": {\r\n    \"title\": \"Classes taught by real creators\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"creator-1.jpg\",\r\n        \"name\": \"Jane Cooper\",\r\n        \"designation\": \"UI UX Designer\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        \"image\": \"creator-2.jpg\",\r\n        \"name\": \"Adam\",\r\n        \"designation\": \"Frontend Developer\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        \"image\": \"creator-3.jpg\",\r\n        \"name\": \"Tamara\",\r\n        \"designation\": \"Product Designer\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        \"image\": \"creator-4.jpg\",\r\n        \"name\": \"Jane Cooper\",\r\n        \"designation\": \"UI UX Designer\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"studentTestimonials\": {\r\n    \"title\": \"What our students have to say\",\r\n    \"testimonials\": [\r\n      {\r\n        \"image\": \"student-1.jpg\",\r\n        \"name\": \"Savannah Nguyen\",\r\n        \"designation\": \"Student\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.\"\r\n      },\r\n      {\r\n        \"image\": \"student-2.jpg\",\r\n        \"name\": \"David Lee\",\r\n        \"designation\": \"Student\",\r\n        \"description\": \"Excellent course and instructors.\"\r\n      },\r\n      {\r\n        \"image\": \"student-3.jpg\",\r\n        \"name\": \"Emma Wilson\",\r\n        \"designation\": \"Student\",\r\n        \"description\": \"Very helpful learning platform.\"\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"educationDeals\": {\r\n    \"title\": \"Top Education offers and deals are listed here\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"deal-1.jpg\",\r\n        \"percentage\": \"50%\",\r\n        \"title\": \"Full Stack Development\",\r\n        \"description\": \"Get discount on premium courses.\"\r\n      },\r\n      {\r\n        \"image\": \"deal-2.jpg\",\r\n        \"percentage\": \"10%\",\r\n        \"title\": \"UI UX Design\",\r\n        \"description\": \"Special offer for design courses.\"\r\n      },\r\n      {\r\n        \"image\": \"deal-3.jpg\",\r\n        \"percentage\": \"50%\",\r\n        \"title\": \"React Bootcamp\",\r\n        \"description\": \"Limited time offer.\"\r\n      }\r\n    ]\r\n  }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/course-marketplace",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "course-marketplace"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetMarketPlace",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            },
+            {
+              "name": "MarketPlacebyId",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            },
+            {
+              "name": "UpdateById",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/course-marketplace/6a3906491e0114cea8523e6c",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "course-marketplace",
+                    "6a3906491e0114cea8523e6c"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Book-store-course",
+          "item": [
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"heroSection\": {\r\n    \"bannerImage\": \"banner.jpg\",\r\n    \"searchPlaceholder\": \"Search your favourite course\",\r\n    \"subjects\": [\r\n      \"Design\",\r\n      \"Development\",\r\n      \"Business\"\r\n    ],\r\n    \"partners\": [\r\n      \"Google\",\r\n      \"Microsoft\",\r\n      \"Meta\"\r\n    ],\r\n    \"programs\": [\r\n      \"Certificate\",\r\n      \"Diploma\",\r\n      \"Degree\"\r\n    ],\r\n    \"languages\": [\r\n      \"English\",\r\n      \"Hindi\",\r\n      \"Arabic\"\r\n    ],\r\n    \"availability\": [\r\n      \"Full Time\",\r\n      \"Part Time\"\r\n    ],\r\n    \"learningTypes\": [\r\n      \"Online\",\r\n      \"Offline\",\r\n      \"Hybrid\"\r\n    ]\r\n  },\r\n\r\n  \"learningBanner\": {\r\n    \"title\": \"Know about learning learning platform\",\r\n    \"description\": \"Free E-book, video & consultation. Top instructors from around world. Top courses from your team.\",\r\n    \"image\": \"learning-platform.jpg\",\r\n    \"buttonText\": \"Start learning now\",\r\n    \"buttonLink\": \"/courses\"\r\n  },\r\n\r\n  \"recommendedForYou\": {\r\n    \"title\": \"Recommended for you\",\r\n    \"cards\": [\r\n      {\r\n        \"courseId\": \"66a9f123abc4567890def105\",\r\n        \"image\": \"recommended-1.jpg\",\r\n        \"category\": \"Design\",\r\n        \"duration\": \"3 Month\",\r\n        \"title\": \"AWS Certified Solutions Architect\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\r\n        \"authorName\": \"Lina\",\r\n        \"authorImage\": \"lina.jpg\",\r\n        \"price\": 80,\r\n        \"oldPrice\": 100\r\n      },\r\n      {\r\n        \"courseId\": \"66a9f123abc4567890def106\",\r\n        \"image\": \"recommended-2.jpg\",\r\n        \"category\": \"Design\",\r\n        \"duration\": \"3 Month\",\r\n        \"title\": \"AWS Certified Solutions Architect\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\r\n        \"authorName\": \"Lina\",\r\n        \"authorImage\": \"lina.jpg\",\r\n        \"price\": 80,\r\n        \"oldPrice\": 100\r\n      },\r\n      {\r\n        \"courseId\": \"66a9f123abc4567890def107\",\r\n        \"image\": \"recommended-3.jpg\",\r\n        \"category\": \"Design\",\r\n        \"duration\": \"3 Month\",\r\n        \"title\": \"AWS Certified Solutions Architect\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\r\n        \"authorName\": \"Lina\",\r\n        \"authorImage\": \"lina.jpg\",\r\n        \"price\": 80,\r\n        \"oldPrice\": 100\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"classesTaughtByCreators\": {\r\n    \"title\": \"Classes taught by real creators\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"creator-1.jpg\",\r\n        \"name\": \"Jane Cooper\",\r\n        \"designation\": \"UI UX Designer\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        \"image\": \"creator-2.jpg\",\r\n        \"name\": \"Adam\",\r\n        \"designation\": \"Frontend Developer\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        \"image\": \"creator-3.jpg\",\r\n        \"name\": \"Tamara\",\r\n        \"designation\": \"Product Designer\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        \"image\": \"creator-4.jpg\",\r\n        \"name\": \"Jane Cooper\",\r\n        \"designation\": \"UI UX Designer\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"studentTestimonials\": {\r\n    \"title\": \"What our students have to say\",\r\n    \"testimonials\": [\r\n      {\r\n        \"image\": \"student-1.jpg\",\r\n        \"name\": \"Savannah Nguyen\",\r\n        \"designation\": \"Student\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.\"\r\n      },\r\n      {\r\n        \"image\": \"student-2.jpg\",\r\n        \"name\": \"David Lee\",\r\n        \"designation\": \"Student\",\r\n        \"description\": \"Excellent course and instructors.\"\r\n      },\r\n      {\r\n        \"image\": \"student-3.jpg\",\r\n        \"name\": \"Emma Wilson\",\r\n        \"designation\": \"Student\",\r\n        \"description\": \"Very helpful learning platform.\"\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"educationDeals\": {\r\n    \"title\": \"Top Education offers and deals are listed here\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"deal-1.jpg\",\r\n        \"percentage\": \"50%\",\r\n        \"title\": \"Full Stack Development\",\r\n        \"description\": \"Get discount on premium courses.\"\r\n      },\r\n      {\r\n        \"image\": \"deal-2.jpg\",\r\n        \"percentage\": \"10%\",\r\n        \"title\": \"UI UX Design\",\r\n        \"description\": \"Special offer for design courses.\"\r\n      },\r\n      {\r\n        \"image\": \"deal-3.jpg\",\r\n        \"percentage\": \"50%\",\r\n        \"title\": \"React Bootcamp\",\r\n        \"description\": \"Limited time offer.\"\r\n      }\r\n    ]\r\n  }\r\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/book-store-course",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "book-store-course"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetStoreCourse",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            },
+            {
+              "name": "UpdateStoreCouse",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            },
+            {
+              "name": "DeleteStoreCouse",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"heroSection\": {\r\n    \"bannerImage\": \"banner.jpg\",\r\n    \"searchPlaceholder\": \"Search your favourite course\",\r\n    \"subjects\": [\r\n      \"Design\",\r\n      \"Development\",\r\n      \"Business\"\r\n    ],\r\n    \"partners\": [\r\n      \"Google\",\r\n      \"Microsoft\",\r\n      \"Meta\"\r\n    ],\r\n    \"programs\": [\r\n      \"Certificate\",\r\n      \"Diploma\",\r\n      \"Degree\"\r\n    ],\r\n    \"languages\": [\r\n      \"English\",\r\n      \"Hindi\",\r\n      \"Arabic\"\r\n    ],\r\n    \"availability\": [\r\n      \"Full Time\",\r\n      \"Part Time\"\r\n    ],\r\n    \"learningTypes\": [\r\n      \"Online\",\r\n      \"Offline\",\r\n      \"Hybrid\"\r\n    ]\r\n  },\r\n\r\n  \"learningBanner\": {\r\n    \"title\": \"Know about learning learning platform\",\r\n    \"description\": \"Free E-book, video & consultation. Top instructors from around world. Top courses from your team.\",\r\n    \"image\": \"learning-platform.jpg\",\r\n    \"buttonText\": \"Start learning now\",\r\n    \"buttonLink\": \"/courses\"\r\n  },\r\n\r\n  \"recommendedForYou\": {\r\n    \"title\": \"Recommended for you\",\r\n    \"cards\": [\r\n      {\r\n        \"courseId\": \"66a9f123abc4567890def105\",\r\n        \"image\": \"recommended-1.jpg\",\r\n        \"category\": \"Design\",\r\n        \"duration\": \"3 Month\",\r\n        \"title\": \"AWS Certified Solutions Architect\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\r\n        \"authorName\": \"Lina\",\r\n        \"authorImage\": \"lina.jpg\",\r\n        \"price\": 80,\r\n        \"oldPrice\": 100\r\n      },\r\n      {\r\n        \"courseId\": \"66a9f123abc4567890def106\",\r\n        \"image\": \"recommended-2.jpg\",\r\n        \"category\": \"Design\",\r\n        \"duration\": \"3 Month\",\r\n        \"title\": \"AWS Certified Solutions Architect\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\r\n        \"authorName\": \"Lina\",\r\n        \"authorImage\": \"lina.jpg\",\r\n        \"price\": 80,\r\n        \"oldPrice\": 100\r\n      },\r\n      {\r\n        \"courseId\": \"66a9f123abc4567890def107\",\r\n        \"image\": \"recommended-3.jpg\",\r\n        \"category\": \"Design\",\r\n        \"duration\": \"3 Month\",\r\n        \"title\": \"AWS Certified Solutions Architect\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\r\n        \"authorName\": \"Lina\",\r\n        \"authorImage\": \"lina.jpg\",\r\n        \"price\": 80,\r\n        \"oldPrice\": 100\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"classesTaughtByCreators\": {\r\n    \"title\": \"Classes taught by real creators\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"creator-1.jpg\",\r\n        \"name\": \"Jane Cooper\",\r\n        \"designation\": \"UI UX Designer\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        \"image\": \"creator-2.jpg\",\r\n        \"name\": \"Adam\",\r\n        \"designation\": \"Frontend Developer\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        \"image\": \"creator-3.jpg\",\r\n        \"name\": \"Tamara\",\r\n        \"designation\": \"Product Designer\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        \"image\": \"creator-4.jpg\",\r\n        \"name\": \"Jane Cooper\",\r\n        \"designation\": \"UI UX Designer\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"studentTestimonials\": {\r\n    \"title\": \"What our students have to say\",\r\n    \"testimonials\": [\r\n      {\r\n        \"image\": \"student-1.jpg\",\r\n        \"name\": \"Savannah Nguyen\",\r\n        \"designation\": \"Student\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.\"\r\n      },\r\n      {\r\n        \"image\": \"student-2.jpg\",\r\n        \"name\": \"David Lee\",\r\n        \"designation\": \"Student\",\r\n        \"description\": \"Excellent course and instructors.\"\r\n      },\r\n      {\r\n        \"image\": \"student-3.jpg\",\r\n        \"name\": \"Emma Wilson\",\r\n        \"designation\": \"Student\",\r\n        \"description\": \"Very helpful learning platform.\"\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"educationDeals\": {\r\n    \"title\": \"Top Education offers and deals are listed here\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"deal-1.jpg\",\r\n        \"percentage\": \"50%\",\r\n        \"title\": \"Full Stack Development\",\r\n        \"description\": \"Get discount on premium courses.\"\r\n      },\r\n      {\r\n        \"image\": \"deal-2.jpg\",\r\n        \"percentage\": \"10%\",\r\n        \"title\": \"UI UX Design\",\r\n        \"description\": \"Special offer for design courses.\"\r\n      },\r\n      {\r\n        \"image\": \"deal-3.jpg\",\r\n        \"percentage\": \"50%\",\r\n        \"title\": \"React Bootcamp\",\r\n        \"description\": \"Limited time offer.\"\r\n      }\r\n    ]\r\n  }\r\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/admin/book-store-course/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "book-store-course",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
         }
       ]
     },
@@ -1436,6 +1743,14 @@
           "name": "Course",
           "item": [
             {
+              "name": "New Request",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            },
+            {
               "name": "GetCourse",
               "request": {
                 "method": "GET",
@@ -1543,6 +1858,171 @@
               "request": {
                 "method": "GET",
                 "header": []
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "CourseLanding",
+          "item": [
+            {
+              "name": "GetCourse",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/course-landing-page",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "course-landing-page"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetCourseByID",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/course-landing-page/66a9f123abc4567890def106",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "course-landing-page",
+                    "66a9f123abc4567890def106"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "MarketPlace",
+          "item": [
+            {
+              "name": "GetMarketPlace",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"heroSection\": {\r\n    \"bannerImage\": \"banner.jpg\",\r\n    \"searchPlaceholder\": \"Search your favourite course\",\r\n    \"subjects\": [\r\n      \"Design\",\r\n      \"Development\",\r\n      \"Business\"\r\n    ],\r\n    \"partners\": [\r\n      \"Google\",\r\n      \"Microsoft\",\r\n      \"Meta\"\r\n    ],\r\n    \"programs\": [\r\n      \"Certificate\",\r\n      \"Diploma\",\r\n      \"Degree\"\r\n    ],\r\n    \"languages\": [\r\n      \"English\",\r\n      \"Hindi\",\r\n      \"Arabic\"\r\n    ],\r\n    \"availability\": [\r\n      \"Full Time\",\r\n      \"Part Time\"\r\n    ],\r\n    \"learningTypes\": [\r\n      \"Online\",\r\n      \"Offline\",\r\n      \"Hybrid\"\r\n    ]\r\n  },\r\n\r\n  \"learningBanner\": {\r\n    \"title\": \"Know about learning learning platform\",\r\n    \"description\": \"Free E-book, video & consultation. Top instructors from around world. Top courses from your team.\",\r\n    \"image\": \"learning-platform.jpg\",\r\n    \"buttonText\": \"Start learning now\",\r\n    \"buttonLink\": \"/courses\"\r\n  },\r\n\r\n  \"recommendedForYou\": {\r\n    \"title\": \"Recommended for you\",\r\n    \"cards\": [\r\n      {\r\n        \"courseId\": \"66a9f123abc4567890def105\",\r\n        \"image\": \"recommended-1.jpg\",\r\n        \"category\": \"Design\",\r\n        \"duration\": \"3 Month\",\r\n        \"title\": \"AWS Certified Solutions Architect\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\r\n        \"authorName\": \"Lina\",\r\n        \"authorImage\": \"lina.jpg\",\r\n        \"price\": 80,\r\n        \"oldPrice\": 100\r\n      },\r\n      {\r\n        \"courseId\": \"66a9f123abc4567890def106\",\r\n        \"image\": \"recommended-2.jpg\",\r\n        \"category\": \"Design\",\r\n        \"duration\": \"3 Month\",\r\n        \"title\": \"AWS Certified Solutions Architect\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\r\n        \"authorName\": \"Lina\",\r\n        \"authorImage\": \"lina.jpg\",\r\n        \"price\": 80,\r\n        \"oldPrice\": 100\r\n      },\r\n      {\r\n        \"courseId\": \"66a9f123abc4567890def107\",\r\n        \"image\": \"recommended-3.jpg\",\r\n        \"category\": \"Design\",\r\n        \"duration\": \"3 Month\",\r\n        \"title\": \"AWS Certified Solutions Architect\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\",\r\n        \"authorName\": \"Lina\",\r\n        \"authorImage\": \"lina.jpg\",\r\n        \"price\": 80,\r\n        \"oldPrice\": 100\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"classesTaughtByCreators\": {\r\n    \"title\": \"Classes taught by real creators\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"creator-1.jpg\",\r\n        \"name\": \"Jane Cooper\",\r\n        \"designation\": \"UI UX Designer\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        \"image\": \"creator-2.jpg\",\r\n        \"name\": \"Adam\",\r\n        \"designation\": \"Frontend Developer\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        \"image\": \"creator-3.jpg\",\r\n        \"name\": \"Tamara\",\r\n        \"designation\": \"Product Designer\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      },\r\n      {\r\n        \"image\": \"creator-4.jpg\",\r\n        \"name\": \"Jane Cooper\",\r\n        \"designation\": \"UI UX Designer\",\r\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit.\"\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"studentTestimonials\": {\r\n    \"title\": \"What our students have to say\",\r\n    \"testimonials\": [\r\n      {\r\n        \"image\": \"student-1.jpg\",\r\n        \"name\": \"Savannah Nguyen\",\r\n        \"designation\": \"Student\",\r\n        \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.\"\r\n      },\r\n      {\r\n        \"image\": \"student-2.jpg\",\r\n        \"name\": \"David Lee\",\r\n        \"designation\": \"Student\",\r\n        \"description\": \"Excellent course and instructors.\"\r\n      },\r\n      {\r\n        \"image\": \"student-3.jpg\",\r\n        \"name\": \"Emma Wilson\",\r\n        \"designation\": \"Student\",\r\n        \"description\": \"Very helpful learning platform.\"\r\n      }\r\n    ]\r\n  },\r\n\r\n  \"educationDeals\": {\r\n    \"title\": \"Top Education offers and deals are listed here\",\r\n    \"cards\": [\r\n      {\r\n        \"image\": \"deal-1.jpg\",\r\n        \"percentage\": \"50%\",\r\n        \"title\": \"Full Stack Development\",\r\n        \"description\": \"Get discount on premium courses.\"\r\n      },\r\n      {\r\n        \"image\": \"deal-2.jpg\",\r\n        \"percentage\": \"10%\",\r\n        \"title\": \"UI UX Design\",\r\n        \"description\": \"Special offer for design courses.\"\r\n      },\r\n      {\r\n        \"image\": \"deal-3.jpg\",\r\n        \"percentage\": \"50%\",\r\n        \"title\": \"React Bootcamp\",\r\n        \"description\": \"Limited time offer.\"\r\n      }\r\n    ]\r\n  }\r\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/course-marketplace",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "course-marketplace"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Search",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\"duration\": \"2 Month\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/web/course-marketplace/search",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "web",
+                    "course-marketplace",
+                    "search"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Book-store-course",
+          "item": [
+            {
+              "name": "GetStoreCourse",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "VideoCall",
+          "item": [
+            {
+              "name": "MeetingApi",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"channelName\": \"uiux-class-room\",\r\n  \"uid\": 12345\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5001/api/v1/meeting/generate-token",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5001",
+                  "path": [
+                    "api",
+                    "v1",
+                    "meeting",
+                    "generate-token"
+                  ]
+                }
               },
               "response": []
             }
