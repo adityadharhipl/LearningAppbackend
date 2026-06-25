@@ -9,16 +9,12 @@ const courseSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-
     slug: {
       type: String,
       unique: true,
     },
-
     description: String,
-
     thumbnail: String,
-
     previewVideo: String,
 
     price: {
@@ -27,11 +23,8 @@ const courseSchema = new mongoose.Schema(
     },
 
     oldPrice: Number,
-
     discountPercent: Number,
-
     duration: String,
-
     lessons: Number,
 
     level: {
@@ -61,16 +54,15 @@ const courseSchema = new mongoose.Schema(
     },
 
     // Course Includes
-   includes: {
-  title: String,
-
-  items: [
-    {
+    includes: {
       title: String,
-      icon: String
-    }
-  ]
-},
+      items: [
+        {
+          title: String,
+          icon: String
+        }
+      ]
+    },
 
     // Reviews
     reviews: [
@@ -104,13 +96,9 @@ const courseSchema = new mongoose.Schema(
     // Classroom Section
     classroomSection: {
       title: String,
-
       description: String,
-
       image: String,
-
       videoUrl: String,
-
       learnMoreLink: String,
     },
 
@@ -118,11 +106,8 @@ const courseSchema = new mongoose.Schema(
     educationOffers: [
       {
         discount: Number,
-
         title: String,
-
         description: String,
-
         image: String,
       },
     ],

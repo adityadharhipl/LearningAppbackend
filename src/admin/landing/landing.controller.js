@@ -11,6 +11,7 @@ exports.createLanding = async (req, res) => {
   }
   try {
     const landing = await LandingPage.create(req.body);
+    console.log(landing,"landing")
     return res.status(201).json({ success: true, data: landing });
   } catch (error) {
     return res.status(500).json({ success: false, message: error.message });
@@ -39,6 +40,7 @@ exports.getLanding = async (req, res) => {
 exports.updateLanding = async (req, res) => {
   try {
     const landing = await LandingPage.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    
     return res.json({ success: true, data: landing });
   } catch (error) {
     return res.status(500).json({ success: false, message: error.message });
